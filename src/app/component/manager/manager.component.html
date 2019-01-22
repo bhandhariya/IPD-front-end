@@ -1,0 +1,223 @@
+
+<div class="container">
+	<div class="row">
+	    
+    <div class="col-md-2" >
+      <input type="button" value="back to dashboard" class="btn btn-primary" (click)="back()"  >
+    </div>    
+
+
+<!-- FORM  -->	    
+	   <div class="col-md-12">
+	       
+	    <form class="form-horizontal" id="form-edit-manager">
+<fieldset>
+
+<!-- Form Name -->
+<legend>manager</legend>
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="manager-name">Name</label>  
+  <div class="col-md-4">
+  <input id="manager-name" name="manager-name" [(ngModel)]="name"  type="text" placeholder="your manager's name" class="form-control input-md">
+  <span class="help-block">Full name of your Manager</span>  
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="manager-name">Username</label>  
+  <div class="col-md-4">
+  <input id="manager-name" name="manager-name" [(ngModel)]="username"  type="text" placeholder="your manager's username" class="form-control input-md">
+  <span class="help-block">Full username of your Manager</span>  
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="manager-password">Password</label>  
+  <div class="col-md-4">
+  <input id="manager-password" name="manager-password" [(ngModel)]="password"  type="password" placeholder="entar password" class="form-control input-md">
+  <span class="help-block">Entar any Password</span>  
+  </div>
+</div>
+
+<!-- Prepended text-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="manager-email">Email</label>
+  <div class="col-md-4">
+    <div class="input-group">
+      <span class="input-group-addon">@</span>
+      <input id="manager-email" name="manager-email" [(ngModel)]="email"  class="form-control" placeholder="yourname@yourdomain.com" type="text">
+    </div>
+    <p class="help-block">Email of your manager</p>
+  </div>
+</div>
+
+
+
+<!-- Multiple Radios -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="manager-status">manager status</label>
+  <div class="col-md-4">
+  <div class="radio">
+    <label for="manager-status-0">
+      <input type="radio" name="manager-status" [(ngModel)]="status"  id="manager-status-0" value="active" checked="checked">
+      Active
+    </label>
+	</div>
+  <div class="radio">
+    <label for="manager-status-1">
+      <input type="radio" name="manager-status" id="manager-status-1" [(ngModel)]="status" value="inactive">
+      Inactive
+    </label>
+	</div>
+  </div>
+</div>
+
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="btn-save"></label>
+  <div class="col-md-4">
+    <button id="btn-save" name="btn-save" class="btn btn-success" (click)="saveManager()"   >Save</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+
+	   </div> 
+	    
+
+
+
+<!-- LIST -->
+<div class=col-md-12>
+    
+    <form id="form-list-manager">
+            <legend>List of managers</legend>
+    
+    <div class="pull-right">
+        <a class="btn btn-default-btn-xs btn-primary"><i class="glyphicon glyphicon-refresh"></i> Refresh</a>
+        <a class="btn btn-default-btn-xs btn-success"><i class="glyphicon glyphicon-plus"></i> New</a>
+    </div>
+    <table class="table table-bordered table-condensed table-hover">
+        <thead>
+            <tr>
+                <td>id</td>
+                <td>Name</td>
+                <td>Username</td>
+                <th>Email</th>                                                                                                                                                                                                                                                                                                                        
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+                
+        </thead>
+        <tbody id="form-list-manager-body">
+            <tr *ngFor="let man of AllManager" >                                                              
+                <td *ngIf="man._id!=bgloid;else temp"  >{{j+1}}</td>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+                <td *ngIf="man._id!=bgloid"  >{{man.name}}</td>                                                                                                                                                                                                                                                                                                                                      
+                <td *ngIf="man._id!=bgloid">{{man.username}}</td>
+                <td *ngIf="man._id!=bgloid">{{man.email}}</td>
+                <td *ngIf="man._id!=bgloid" >{{man.status}}</td>
+  <td *ngIf="man._id!=bgloid" >
+                    <a title="view this user"   class="btn btn-default btn-sm "> <i class="glyphicon glyphicon-eye-open text-primary"></i> </a>
+                    <a title="edit this user" (click)="editManager(man)"  class="btn btn-default btn-sm "> <i class="glyphicon glyphicon-edit text-primary"></i> </a>
+                    <a title="delete this user"  (click)="deleteManager(man._id)"  class="btn btn-default btn-sm "> <i class="glyphicon glyphicon-trash text-danger"></i> </a>
+                    
+                    <a title="check credit" class="btn btn-default btn-sm "> <i class="glyphicon glyphicon-duplicate text-danger"></i> </a>
+                    <a title="generate invoice" class="btn btn-default btn-sm "> <i class="glyphicon glyphicon-level-up bg-success"></i> </a>
+                   
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </form>
+
+    
+</div>
+
+
+<br> 
+
+<!-- view -->
+
+<div class="col-md-12">
+    
+    <legend>View manager</legend>
+    
+    <div >
+        
+              <!-- <div class2=" col-md-9 col-lg-9 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Name:</td>
+                        <td>Andre Silva</td>
+                      </tr>
+                      <tr>
+                        <td>Email</td>
+                        <td><a href="">raja@support.com</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+         -->
+
+         
+          <ng-template #temp>
+                  <td>{{globid}}</td>
+                  <td>
+                      <input type="text" class="form-control" >
+                  </td>
+                  <td><input type="text" class="form-control" ></td>
+                  <td><input type="text" class="form-control" ></td>
+                  <td><input type="text" class="form-control" ></td>
+                  <td>
+                      <input type="button" value="delete">
+                      <input type="button" value="save">
+                     
+                  </td>
+
+                </ng-template>
+
+        
+    </div>
+            <div class="panel with-nav-tabs panel-default">
+                <div class="panel-heading">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab1default" data-toggle="tab">Default 1</a></li>
+                            <li><a href="#tab2default" data-toggle="tab">Default 2</a></li>
+                            
+                            <li><a href="#tab3default" data-toggle="tab">Default 3</a></li>
+                            <!--
+                            <li class="dropdown">
+                                <a href="#" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#tab4default" data-toggle="tab">Default 4</a></li>
+                                    <li><a href="#tab5default" data-toggle="tab">Default 5</a></li>
+                                </ul>
+                            </li>
+                            -->
+                        </ul>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="tab1default">Default 1</div>
+                        <div class="tab-pane fade" id="tab2default">Default 2</div>
+                        <div class="tab-pane fade" id="tab3default">Default 3</div>
+                        <!--
+                        <div class="tab-pane fade" id="tab4default">Default 4</div>
+                        <div class="tab-pane fade" id="tab5default">Default 5</div>
+                        -->
+                    </div>
+                </div>
+            </div>
+
+</div>
+	    
+	    
+	</div>
+</div>

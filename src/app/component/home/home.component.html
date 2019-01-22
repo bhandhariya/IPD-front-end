@@ -1,0 +1,101 @@
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" id="navId">
+  <li class="nav-item">
+    <a  class="nav-link active"    >Home</a>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Form</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item"  routerLink="formc" >Form C</a>
+      <a class="dropdown-item" routerLink="formd" >Form D</a>
+      <a class="dropdown-item" routerLink="forme" >Form E</a>
+      <a class="dropdown-item" routerLink="formF" >Form F</a>
+      <a class="dropdown-item" routerLink="formg" >Form G</a>
+      <a class="dropdown-item" routerLink="formh" >Form H</a>
+      <a class="dropdown-item" routerLink="form10" >Form 10</a>
+    </div>
+  </li>
+  <li class="nav-item">
+    <a routerLink="ucs" class="nav-link">Unit Creation</a>
+  </li>
+  <li class="nav-item">
+    <a routerLink="ucs" class="nav-link"  >Daily nurse Instructions</a>
+  </li>
+  <li class="nav-item">
+    <a  routerLink="profile" class="nav-link"   >Profile Screen</a>
+  </li>
+  <li class="nav-item">
+    <a  routerLink="service" class="nav-link"   >Services</a>
+  </li>
+  <li class="nav-item">
+<a name="" id="" class="btn btn-primary" (click)="logout()" role="button">Logout</a>
+  </li>
+
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane fade show active" id="tab1Id" role="tabpanel"></div>
+  <div class="tab-pane fade" id="tab2Id" role="tabpanel"></div>
+  <div class="tab-pane fade" id="tab3Id" role="tabpanel"></div>
+  <div class="tab-pane fade" id="tab4Id" role="tabpanel"></div>
+  <div class="tab-pane fade" id="tab5Id" role="tabpanel"></div>
+</div>
+
+<script>
+  $('#navId a').click(e => {
+    e.preventDefault();
+    $(this).tab(  routerLink="home" , 'Home');
+  });
+</script>
+
+
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Add Quick Patient</h5>
+   
+    <app-quick-patient></app-quick-patient>  
+  </div>
+</div>
+
+
+<table class="table table-light">
+  <thead class="thead-light">
+    <tr>
+      <th>SN</th>
+      <th>Patient Name</th>
+      <th>Patient Sex</th>
+      <th>Patient Address</th>
+      <th>Patient Mobile</th>
+      <th>Patient Email</th>
+      <th>Patient Adhar Number</th>
+      <th>Patient Date of Birth</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of PatDetail " >
+      <td>{{i+1}}</td>
+      <td>{{item.first_name}} {{item.last_name}}</td>
+      <td>{{item.gender}}</td>
+      <td>{{item.present_address}}</td>
+      <td>{{item.primary_contact_number}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.adhar_number}}</td>
+      <td>{{item.date_of_birth | date }}</td>
+      <td>
+        <input type="button" value="edit" class="btn btn-danger" >
+      </td>
+      
+
+      
+    </tr>
+  </tbody>
+  <!-- <tfoot>
+    <tr>
+      <th>#</th>
+    </tr>
+  </tfoot> -->
+</table>
+

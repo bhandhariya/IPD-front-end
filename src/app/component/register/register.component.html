@@ -1,0 +1,46 @@
+
+<html>
+ 
+  <body id="LoginForm">
+  <div class="container">
+  <h1 class="form-heading"></h1>
+  <div class="login-form">
+  <div class="main-div">
+      <div class="panel">
+     <h2>Hospital Registration</h2>
+     <p>Please enter your username and password</p>
+     </div>
+      
+  
+          <div class="form-group">
+  
+  
+              <input type="email" class="form-control" id="username"  [(ngModel)]="username"  placeholder="Username">
+  
+          </div>
+          <div class="form-group">
+  
+  
+            <input type="name" class="form-control" id="name" [(ngModel)]="name"  placeholder="Name">
+
+        </div>
+  
+          <div class="form-group">
+  
+              <input type="password" class="form-control" id="passowrd" [(ngModel)]="password"  placeholder="Password">
+  
+          </div>
+          <div class="forgot">
+          <a href="login">Already Have an Account</a>
+  </div>
+          <button type="submit" (click)="registeration()"  class="btn btn-primary">Login</button>
+  
+      
+      </div>
+  <p class="botto-text"></p>
+  </div></div>
+  
+  
+  </body>
+  </html>
+  

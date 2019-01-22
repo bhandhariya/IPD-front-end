@@ -1,0 +1,197 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Create new Patient</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+   <div class="container-fluid">
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="">first name <span style="color: red" >*</span></label>
+        <input type="text" class="form-control"  id="" aria-describedby="helpId" [(ngModel)]="first_name"  placeholder="">
+       
+      </div>
+      <div class="form-group">
+        <label for="">Last Name</label>
+        <input type="text" class="form-control"  id="" aria-describedby="helpId" [(ngModel)]="last_name" placeholder="">
+       
+      </div>
+    </div>
+    <div class="col-md-3">
+      
+      <div class="form-group">
+        <label for="">Secondary Contact Number</label>
+        <input type="text" class="form-control"  id="" aria-describedby="helpId" [(ngModel)]="secondary_contact_number" placeholder="">
+       
+      </div>
+      
+      <div class="form-group">
+        <label for="">Primary Contact Number</label>
+        <input type="text" class="form-control"  id="" aria-describedby="helpId" [(ngModel)]="primary_contact_number" placeholder="">
+       
+      </div>
+   </div>
+
+
+   <div class="col-md-3">
+     <div class="form-group">
+       <label for="">Gender</label>
+     <select [(ngModel)]="gender"  style="width: 150px;height: 33px;" class="form-control" >
+       <option>male</option>
+       <option>Female</option>
+     </select>
+     </div>
+     <div class="form-group">
+      <label for="">Email ID</label>
+      <input type="email" class="form-control"  id="" [(ngModel)]="email" aria-describedby="helpId" placeholder="">
+     
+    </div>
+    
+   </div>
+   <div class="col-md-3">
+     <div class="form-group">
+       <label for="">Date Of Birth</label>
+       <input type="date" class="form-control"  id="" [(ngModel)]="date_of_birth" aria-describedby="helpId" placeholder="">
+     </div>
+     <div class="form-group">
+      <label for="">Adhar Number</label>
+      <input type="text" class="form-control"  id="" [(ngModel)]="adhar_number" aria-describedby="helpId" placeholder="">
+     
+    </div>
+ 
+   </div>
+   <div class="col-md-6">
+     <div class="form-group">
+       <label for="my-input">Present Address</label>
+       <textarea id="my-input" placeholder="entar address" class="form-control" [(ngModel)]="present_address" rows="3"></textarea>
+     </div>
+   </div>
+   <div class="col-md-6">
+    <div class="form-group">
+      <label for="my-input">Permanent Address</label>
+      <textarea id="my-input" placeholder="entar address" class="form-control" [(ngModel)]="permanent_address" rows="3"></textarea>
+    </div>
+  </div>
+   </div>
+   <div class="container-fluid">
+    <div *ngIf="show">
+        <div class="col-md-3"  >
+         <div class="form-group">
+          <label for="">Marrital Status</label>
+          <select  [(ngModel)]="marrital_status"  style="width: 150px;height: 33px;" class="form-control" >
+            <option>Unmarried</option>
+            <option>Married</option>
+            <option>Divorced</option>
+            <option>Widowed</option>
+            <option>Remarried</option>
+            <option>Saperated</option>
+          </select>
+          
+         </div>
+        </div>
+        <div class="col-md-3"  >
+          <label for="">Father/Spouse Name<span style="color: red" >*</span></label>
+          <input type="text" class="form-control"  id="" aria-describedby="helpId" [(ngModel)]="parent_name"  placeholder=""> 
+        </div>
+        <div class="col-md-3"  >
+          <label for="">Education</label>
+          <select  [(ngModel)]="education" style="width: 150px;height: 33px;" class="form-control" >
+            <option>No Formal Education</option>
+            <option>School Education</option>
+            <option>Graduate</option>
+            <option>Post Graduate</option>
+            <option>Doctorate</option>
+            <option>Others</option>
+          </select>
+        </div>
+        <div class="col-md-3"  >
+          <label for="">Occupation</label>
+          <select   style="width: 150px;height: 33px;" class="form-control" >
+            <option>Professional</option>
+            <option>Service</option>
+            <option>Employee</option>
+            <option>Business</option>
+            <option>Farmer</option>
+            <option>Student</option>
+          </select>
+        </div>
+
+        <div class="col-md-11"  >
+          <label for="">Identification Marks</label>
+          <input type="text" class="form-control"  id=""  aria-describedby="helpId" [(ngModel)]="first_name"  placeholder=""> 
+          
+        </div>
+        <div class="col-md-1">
+          <input style="margin-top: 25px;width:50px"  type="button" value="Add" class="btn btn-primary" >
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="">Monthly Income</label>
+          <select   style="width: 150px;height: 33px;" class="form-control" >
+            <option>Below 10000</option>
+            <option>10000-25000</option>
+            <option>25000-50000</option>
+            <option>50000-100000</option>
+            <option>100000-500000</option>
+            <option>More than 500000</option>
+          </select>
+          <label for="">Town</label>
+          <input type="text" class="form-control"  id=""  aria-describedby="helpId" [(ngModel)]="first_name"  placeholder=""> 
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group"><label for="">Religion</label>
+            <input type="text" class="form-control"  id=""  aria-describedby="helpId" [(ngModel)]="first_name"  placeholder=""> 
+            <label for="">Country</label>
+          <input type="text" class="form-control"  id=""  aria-describedby="helpId" [(ngModel)]="first_name"  placeholder=""> 
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="">Family Type</label>
+            <select   style="width: 150px;height: 33px;" class="form-control" >
+              <option>Nuclear</option>
+              <option>Joint</option>
+              <option>Extended</option>
+            </select>
+            <label for="">Nationality</label>
+          <input type="text" class="form-control"  id=""  aria-describedby="helpId" [(ngModel)]="first_name"  placeholder=""> 
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="">Locality</label>
+            <select   style="width: 150px;height: 33px;" class="form-control" >
+              <option>Urban</option>
+              <option>Semi-Urban</option>
+              <option>Rural</option>
+            </select> 
+            <label for="">Information Source</label>
+          <select   style="width: 150px;height: 33px;" class="form-control" >
+            <option>Mentdoc website</option>
+            <option>Fellow Professionals</option>
+            <option>Mentdoc Representative</option>
+            <option>Socical Media</option>
+            <option>Email</option>
+          </select> 
+          </div>
+        </div>
+
+        
+       
+  </div>
+  </div>
+
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" style="margin-right: 620px" (click)="toggle()" id="bt" >{{buttonName}}</button>
+    <button type="button" class="btn btn-primary" (click)="modal.close('Close click')">Close </button>
+    <button type="button" class="btn btn-primary" (click)="save()">Save </button>
+  </div>
+</ng-template>
+
+
+<button class="btn btn-outline-primary mb-2 mr-2"  (click)="openLg(content)">Add</button>
