@@ -5,6 +5,7 @@ import { HttpModule } from "@angular/http";
 import { RouterModule } from "@angular/router";
 import { JwtModule } from "@auth0/angular-jwt";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgxPrintModule } from "ngx-print";
 
 import { AppComponent } from './app.component';
 
@@ -30,6 +31,7 @@ import { NurseInstructionScreenComponent } from './component/nurse-instruction-s
 import { UnitCreationScreenComponent } from './component/unit-creation-screen/unit-creation-screen.component';
 import { AddServiceComponent } from './component/add-service/add-service.component';
 import { BillingComponent } from './component/billing/billing.component';
+import { BillingDayEndComponent } from './component/billing-day-end/billing-day-end.component';
 
 
 
@@ -52,10 +54,13 @@ import { BillingComponent } from './component/billing/billing.component';
     NurseInstructionScreenComponent,
     UnitCreationScreenComponent,
     AddServiceComponent,
-    BillingComponent
+    BillingComponent,
+    BillingDayEndComponent
   ],
   imports: [
-    BrowserModule,FormsModule,HttpModule,NgbModule.forRoot(),
+    BrowserModule,FormsModule,HttpModule,
+    NgxPrintModule,
+    NgbModule.forRoot(),
     RouterModule.forRoot([
       {path:"",component:LoginComponent},
       {path:"login",component:LoginComponent},
@@ -74,6 +79,7 @@ import { BillingComponent } from './component/billing/billing.component';
       {path:'home/ucs',component:UnitCreationScreenComponent,canActivate:[AuthGuard]},
       {path:'home/service',component:AddServiceComponent,canActivate:[AuthGuard]},
       {path:'home/billing',component:BillingComponent,canActivate:[AuthGuard]},
+      {path:'home/billing-day-end',component:BillingDayEndComponent,canActivate:[AuthGuard]},
   ]),
   ],
   
