@@ -29,6 +29,7 @@ import { ProfileScreenComponent } from './component/profile-screen/profile-scree
 import { NurseInstructionScreenComponent } from './component/nurse-instruction-screen/nurse-instruction-screen.component';
 import { UnitCreationScreenComponent } from './component/unit-creation-screen/unit-creation-screen.component';
 import { AddServiceComponent } from './component/add-service/add-service.component';
+import { BillingComponent } from './component/billing/billing.component';
 
 
 
@@ -50,7 +51,8 @@ import { AddServiceComponent } from './component/add-service/add-service.compone
     ProfileScreenComponent,
     NurseInstructionScreenComponent,
     UnitCreationScreenComponent,
-    AddServiceComponent
+    AddServiceComponent,
+    BillingComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,NgbModule.forRoot(),
@@ -71,6 +73,7 @@ import { AddServiceComponent } from './component/add-service/add-service.compone
       {path:'home/nis',component:NurseInstructionScreenComponent,canActivate:[AuthGuard]},
       {path:'home/ucs',component:UnitCreationScreenComponent,canActivate:[AuthGuard]},
       {path:'home/service',component:AddServiceComponent,canActivate:[AuthGuard]},
+      {path:'home/billing',component:BillingComponent,canActivate:[AuthGuard]},
   ]),
   ],
   
