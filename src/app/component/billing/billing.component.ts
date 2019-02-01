@@ -7,7 +7,7 @@ import { Http } from '@angular/http';
   styleUrls: ['./billing.component.css']
 })
 export class BillingComponent implements OnInit {
-  id;Alldetails;allPatDetails;c1;noname;
+  id;Alldetails;allPatDetails={};c1:string;noname;
   constructor(@Inject(Http) public http) { }
 
   ngOnInit() {

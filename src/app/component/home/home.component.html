@@ -34,6 +34,9 @@
     <a routerLink="billing-day-end" class="nav-link">Billing At Day End</a>
   </li>
   <li class="nav-item">
+    <a routerLink="demo" class="nav-link">Demo</a>
+  </li>
+  <li class="nav-item">
 <a name="" id="" class="btn btn-primary" (click)="logout()" role="button">Logout</a>
   </li>
 
@@ -91,7 +94,7 @@
       <td>{{item.adhar_number}}</td>
       <td>{{item.date_of_birth | date }}</td>
       <td>
-        <input type="button" value="edit" class="btn btn-danger" >
+        <input type="button" (click)="profile(item._id)"  value="profile" class="btn btn-danger" >
       </td>
       
 

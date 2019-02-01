@@ -1,17 +1,36 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Http, JsonpModule } from '@angular/http';
 
+
+
 @Component({
   selector: 'app-billing-day-end',
   templateUrl: './billing-day-end.component.html',
   styleUrls: ['./billing-day-end.component.css']
 })
 export class BillingDayEndComponent implements OnInit {
-  date=Date.now();id;Alldetails;selectDate;
+  date=Date.now();id;Alldetails={};selectDate:Date;
   constructor(@Inject(Http) public http) { }
+  downloadAsExcel(){
+  
+    
+  }
+  options = {
+    fieldSeparator: ',',
+    quoteStrings: '"',
+    decimalseparator: '.',
+    showLabels: false,
+    headers: [],
+    showTitle: true,
+    title: 'asfasf',
+    useBom: false,
+    removeNewLines: true,
+    keys: [ 'billing_date']
+  };
   ngOnInit() {
     this.id=localStorage.getItem('hospital-id');
     this.getHospitalDetails();
+    
   }
   getHospitalDetails(){
     var obj={
@@ -21,6 +40,7 @@ export class BillingDayEndComponent implements OnInit {
   }
   cb=(dt)=>{
     this.Alldetails=JSON.parse(dt._body);
+    console.log(this.Alldetails)
   }
   getDayBilling(){
     var obj={

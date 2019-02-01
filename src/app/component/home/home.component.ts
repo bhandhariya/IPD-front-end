@@ -28,6 +28,9 @@ export class HomeComponent implements OnInit {
   cb=(dt)=>{
     this.PatDetail=JSON.parse(dt._body);
   }
+  profile(x){
+    this.router.navigate(['patient-profile',{id:x}]);
+  }
 
   logout(){
     localStorage.removeItem('hospital-token');

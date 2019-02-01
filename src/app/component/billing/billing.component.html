@@ -12,7 +12,7 @@
           <br />
           <strong>Name wise : </strong> 
           <select [(ngModel)]="c1" (change)="getScat()" class="form-control" style="width: 200px" >
-            <option value=""  >select Patient</option>
+            <option   >select Patient</option>
           <option *ngFor="let item of allPatDetails" value="{{item._id}}" >
             {{item.first_name}}
           </option>
@@ -121,7 +121,7 @@
           <strong> Important: </strong>
           <ol>
             <li>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Please Do not Genarate any bill, untill, unless you are sure to billing
   
             </li>
             <li>

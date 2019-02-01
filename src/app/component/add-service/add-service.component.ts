@@ -8,7 +8,27 @@ import { Http } from '@angular/http';
   styleUrls: ['./add-service.component.css']
 })
 export class AddServiceComponent implements OnInit {
-  name;charge;Services;i=0;
+  name;charge;Services;i=0;serviceName;price
+  bgloid=0;
+  tab(x){
+    this.bgloid=x._id;
+    this.serviceName=x.name;
+    this.price=x.charge
+    
+  }
+  saveSer(){
+    var obj={
+      id:this.bgloid,
+      name:this.serviceName,
+      charge:this.price
+    }
+    this.http.post('http://localhost:3000/service/update',obj).subscribe(this.un)
+  }
+  un=(dt)=>{
+    alert(dt._body);
+    this.fetchAllPatients();
+    this.bgloid=0;
+  }
   a=localStorage.getItem('hospital-id');
   constructor(@Inject(Http) public http) { }
 
@@ -53,7 +73,11 @@ export class AddServiceComponent implements OnInit {
      var obj={
        id:x
      }
-     this.http.post('http://localhost:3000/service/deletebyid',obj).subscribe(this.cb)
+     this.http.post('http://localhost:3000/service/deletebyid',obj).subscribe(this.dlcb)
+   }
+   dlcb=(dt)=>{
+     alert(dt._body);
+     this.fetchAllPatients();
    }
 
 
