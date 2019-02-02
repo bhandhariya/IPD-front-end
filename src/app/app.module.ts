@@ -6,7 +6,9 @@ import { RouterModule } from "@angular/router";
 import { JwtModule } from "@auth0/angular-jwt";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgxPrintModule } from "ngx-print";
-
+import { MatButtonModule,MatCheckboxModule, MatMenuModule, MatDialogModule } from "@angular/material";
+// import { Angular2CsvModule } from 'angular2-csv';
+//import {ToastModule} from 'ng2-toastr/ng2-toastr';
 import { AppComponent } from './app.component';
 
 import { HomeComponent } from "./component/home/home.component";
@@ -32,7 +34,10 @@ import { UnitCreationScreenComponent } from './component/unit-creation-screen/un
 import { AddServiceComponent } from './component/add-service/add-service.component';
 import { BillingComponent } from './component/billing/billing.component';
 import { BillingDayEndComponent } from './component/billing-day-end/billing-day-end.component';
-
+import { PatientProfileComponent } from './component/patient-profile/patient-profile.component';
+import { DemopreviewComponent, DialogContentExampleDialog } from './component/demopreview/demopreview.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ToastrModule} from 'ngx-toastr';
 
 
 @NgModule({
@@ -55,10 +60,15 @@ import { BillingDayEndComponent } from './component/billing-day-end/billing-day-
     UnitCreationScreenComponent,
     AddServiceComponent,
     BillingComponent,
-    BillingDayEndComponent
+    BillingDayEndComponent,
+    PatientProfileComponent,
+    DemopreviewComponent,
+    DialogContentExampleDialog
   ],
   imports: [
-    BrowserModule,FormsModule,HttpModule,
+    BrowserModule,MatButtonModule,MatCheckboxModule,ToastrModule.forRoot(),
+    MatMenuModule,MatDialogModule,
+    FormsModule,HttpModule,
     NgxPrintModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
@@ -80,9 +90,12 @@ import { BillingDayEndComponent } from './component/billing-day-end/billing-day-
       {path:'home/service',component:AddServiceComponent,canActivate:[AuthGuard]},
       {path:'home/billing',component:BillingComponent,canActivate:[AuthGuard]},
       {path:'home/billing-day-end',component:BillingDayEndComponent,canActivate:[AuthGuard]},
-  ]),
-  ],
+      {path:'patient-profile',component:PatientProfileComponent,canActivate:[AuthGuard]},
+      {path:'home/demo',component:DemopreviewComponent,canActivate:[AuthGuard]},
+
+  ]), BrowserAnimationsModule
   
+  ],
   providers: [AuthGuard,AuthService,AdminService,ManagerGuard],
   bootstrap: [AppComponent]
 })

@@ -13,12 +13,14 @@
                           <p class="text-muted">Due to : {{date | date:'d/M/yy hh:mm' }}</p>
                           <p class="font-weight-bold mb-1">
                             select day
-                            <input type="date" [(ngModel)]="selectDate"  (change)="getDayBilling()"  name="" id="">
+                            <input type="date" [(ngModel)]="selectDate"   (change)="getDayBilling()"  >
                           </p>
                       </div>
                   </div>
 
                   <hr class="my-5">
+
+                  <div id="print-section" >
 
                   <div class="row pb-5 p-5">
                       <div class="col-md-6">
@@ -91,13 +93,28 @@
                           <div class="h2 font-weight-light"></div>
                       </div>
                   </div>
+
+
+
+                  </div>
+
               </div>
           </div>
-      </div>
-  </div>
+      
+      
+        </div>
+  
+  
+  
+    </div>
   
   <div class="text-light mt-5 mb-5 text-center small">by : <a class="text-light" target="_blank" href="http://totoprayogo.com">totoprayogo.com</a></div>
 
 </div>
 
 
+
+
+<button printSectionId="print-section" ngxPrint>print</button>
+<button class="btn btn-info" (click)="downloadAsExcel()"  >download as Excel</button>
+<!-- <angular2csv [data]="Alldetails" filename="test.csv" [options]="options">raja</angular2csv> -->

@@ -1,16 +1,40 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import * as $ from 'jquery';
 import { Http } from '@angular/http';
-
+import{ToastrService} from 'ngx-toastr';
 @Component({
   selector: 'app-add-service',
   templateUrl: './add-service.component.html',
   styleUrls: ['./add-service.component.css']
 })
 export class AddServiceComponent implements OnInit {
-  name;charge;Services;i=0;
+  name;charge;Services;i=0;serviceName;price
+  bgloid=0;
+   Swal:any;
+  
+  tab(x){
+    this.bgloid=x._id;
+    this.serviceName=x.name;
+    this.price=x.charge
+    
+  }
+  saveSer(){
+    var obj={
+      id:this.bgloid,
+      name:this.serviceName,
+      charge:this.price
+    }
+
+    this.http.post('http://localhost:3000/service/update',obj).subscribe(this.un)
+   
+  }
+  un=(dt)=>{
+    alert(dt._body);
+    this.fetchAllPatients();
+    this.bgloid=0;
+  }
   a=localStorage.getItem('hospital-id');
-  constructor(@Inject(Http) public http) { }
+  constructor(@Inject(Http) public http,private toastr:ToastrService) { }
 
   ngOnInit() {
     $(document).ready(function(){
@@ -32,6 +56,7 @@ export class AddServiceComponent implements OnInit {
       hospital_id:this.a
     }
     this.http.post('http://localhost:3000/service/createService',obj).subscribe(this.cb);
+    this.toastr.success('Service addedd successfully', 'Success!');
   }
   cb=(dt)=>{
     alert(dt._body);
@@ -52,8 +77,14 @@ export class AddServiceComponent implements OnInit {
    delete(x){
      var obj={
        id:x
+      
      }
-     this.http.post('http://localhost:3000/service/deletebyid',obj).subscribe(this.cb)
+     this.http.post('http://localhost:3000/service/deletebyid',obj).subscribe(this.dlcb)
+     
+   }
+   dlcb=(dt)=>{
+     alert(dt._body);
+     this.fetchAllPatients();
    }
 
 
