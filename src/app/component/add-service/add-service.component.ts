@@ -26,6 +26,8 @@ export class AddServiceComponent implements OnInit {
     }
 
     this.http.post('http://localhost:3000/service/update',obj).subscribe(this.un)
+    this.toastr.success("Service Edited Successfully", 'Success!')
+
    
   }
   un=(dt)=>{
@@ -80,6 +82,7 @@ export class AddServiceComponent implements OnInit {
       
      }
      this.http.post('http://localhost:3000/service/deletebyid',obj).subscribe(this.dlcb)
+     this.toastr.error("Service Delete Successfully");
      
    }
    dlcb=(dt)=>{
