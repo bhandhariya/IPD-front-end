@@ -7,7 +7,7 @@ import { Http } from '@angular/http';
   styleUrls: ['./billing.component.css']
 })
 export class BillingComponent implements OnInit {
-  id;Alldetails;allPatDetails={};c1:string;noname;
+  id;Alldetails;allPatDetails={};c1:string;noname;addser=0;
   constructor(@Inject(Http) public http) { }
 
   ngOnInit() {
@@ -75,6 +75,7 @@ export class BillingComponent implements OnInit {
   }
   cb5=(dt)=>{
     alert(dt._body)
+    this.addser=0;
     this.getPateintServiceDetails();
   }
   getPateintServiceDetails(){
@@ -107,6 +108,24 @@ export class BillingComponent implements OnInit {
   }
   cbb=(dt)=>{
     alert(dt._body)
+  }
+
+  selectService(x){
+this.addser=x;
+  }
+  saveee(){
+    this.addser=0;
+  }
+  ;c;
+  chcchch(){
+    var obj={
+      pat_id:this.c1,
+      service_id:this.c,
+      hos_id:this.Alldetails.id
+    }
+    
+    this.http.post('http://localhost:3000/patient/addService',obj).subscribe(this.cb5)
+
   }
 
   
