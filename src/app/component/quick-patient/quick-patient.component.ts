@@ -17,7 +17,8 @@ export class QuickPatientComponent implements OnInit {
   public buttonName:any='Show';
   closeResult: string;
   first_name;primary_contact_number;last_name;secondary_contact_number;gender;email;date_of_birth;
-  adhar_number;present_address;permanent_address;marrital_status;parent_name;education;
+  adhar_number;present_address;permanent_address;marrital_status;parent_name;education;occupation;identificatin_mark;
+  income;town;religion;country;family_type;nationality;locality;info_source;
   url="http://localhost:3000/patient"
 
 constructor(@Inject(Http) public http,private modalService: NgbModal) {}
@@ -52,6 +53,20 @@ save(){
     adhar_number:this.adhar_number,
     present_address:this.present_address,
     permanent_address:this.permanent_address,
+    marrital_status:this.marrital_status,
+    parent_name:this.parent_name,
+    education:this.education,
+    occupation:this.adhar_number.occupation,
+    identification_mark:this.identificatin_mark,
+    income:this.income,
+    town:this.town,
+    religion:this.religion,
+    country:this.country,
+    family_type:this.adhar_number.family_type,
+    nationality:this.nationality,
+    locality:this.locality,
+    info_source:this.info_source,
+
     hospital_id:localStorage.getItem('hospital-id')
 
   }

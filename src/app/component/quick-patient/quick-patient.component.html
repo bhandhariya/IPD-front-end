@@ -108,7 +108,7 @@
         </div>
         <div class="col-md-3"  >
           <label for="">Occupation</label>
-          <select   style="width: 150px;height: 33px;" class="form-control" >
+          <select  [(ngModel)]="occupation"  style="width: 150px;height: 33px;" class="form-control" >
             <option>Professional</option>
             <option>Service</option>
             <option>Employee</option>
@@ -120,7 +120,7 @@
 
         <div class="col-md-11"  >
           <label for="">Identification Marks</label>
-          <input type="text" class="form-control"  id=""  aria-describedby="helpId" [(ngModel)]="first_name"  placeholder=""> 
+          <input type="text" class="form-control"  id=""  aria-describedby="helpId" [(ngModel)]="identificatin_mark"  placeholder=""> 
           
         </div>
         <div class="col-md-1">
@@ -129,7 +129,7 @@
         <div class="col-md-3">
           <div class="form-group">
             <label for="">Monthly Income</label>
-          <select   style="width: 150px;height: 33px;" class="form-control" >
+          <select  [(ngModel)]="income"  style="width: 150px;height: 33px;" class="form-control" >
             <option>Below 10000</option>
             <option>10000-25000</option>
             <option>25000-50000</option>
@@ -138,38 +138,38 @@
             <option>More than 500000</option>
           </select>
           <label for="">Town</label>
-          <input type="text" class="form-control"  id=""  aria-describedby="helpId" [(ngModel)]="first_name"  placeholder=""> 
+          <input type="text"  class="form-control"  id=""  aria-describedby="helpId" [(ngModel)]="town"  placeholder=""> 
           </div>
         </div>
         <div class="col-md-3">
           <div class="form-group"><label for="">Religion</label>
-            <input type="text" class="form-control"  id=""  aria-describedby="helpId" [(ngModel)]="first_name"  placeholder=""> 
+            <input type="text" class="form-control"  id=""  aria-describedby="helpId" [(ngModel)]="religion"  placeholder=""> 
             <label for="">Country</label>
-          <input type="text" class="form-control"  id=""  aria-describedby="helpId" [(ngModel)]="first_name"  placeholder=""> 
+          <input type="text" class="form-control"  id=""  aria-describedby="helpId" [(ngModel)]="country"  placeholder=""> 
           </div>
         </div>
         <div class="col-md-3">
           <div class="form-group">
             <label for="">Family Type</label>
-            <select   style="width: 150px;height: 33px;" class="form-control" >
+            <select  [(ngModel)]="family_type" style="width: 150px;height: 33px;" class="form-control" >
               <option>Nuclear</option>
               <option>Joint</option>
               <option>Extended</option>
             </select>
             <label for="">Nationality</label>
-          <input type="text" class="form-control"  id=""  aria-describedby="helpId" [(ngModel)]="first_name"  placeholder=""> 
+          <input type="text" class="form-control"  id=""  aria-describedby="helpId" [(ngModel)]="nationality"  placeholder=""> 
           </div>
         </div>
         <div class="col-md-3">
           <div class="form-group">
             <label for="">Locality</label>
-            <select   style="width: 150px;height: 33px;" class="form-control" >
+            <select [(ngModel)]="locality"  style="width: 150px;height: 33px;" class="form-control" >
               <option>Urban</option>
               <option>Semi-Urban</option>
               <option>Rural</option>
             </select> 
             <label for="">Information Source</label>
-          <select   style="width: 150px;height: 33px;" class="form-control" >
+          <select [(ngModel)]="info_source"  style="width: 150px;height: 33px;" class="form-control" >
             <option>Mentdoc website</option>
             <option>Fellow Professionals</option>
             <option>Mentdoc Representative</option>
