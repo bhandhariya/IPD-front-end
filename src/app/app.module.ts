@@ -6,7 +6,7 @@ import { RouterModule } from "@angular/router";
 import { JwtModule } from "@auth0/angular-jwt";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgxPrintModule } from "ngx-print";
-import { MatButtonModule,MatCheckboxModule, MatMenuModule, MatDialogModule } from "@angular/material";
+import { MatButtonModule,MatCheckboxModule, MatMenuModule, MatDialogModule, MatInputModule } from "@angular/material";
 import { Angular2CsvModule } from 'angular2-csv';
 
 import { AppComponent } from './app.component';
@@ -37,7 +37,10 @@ import { BillingDayEndComponent } from './component/billing-day-end/billing-day-
 import { PatientProfileComponent } from './component/patient-profile/patient-profile.component';
 import { DemopreviewComponent, DialogContentExampleDialog } from './component/demopreview/demopreview.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { AAddServiceComponent } from './component/a-add-service/a-add-service.component';
+import { ABillingComponent } from './component/a-billing/a-billing.component';
+import { ABillingSummuryComponent } from './component/a-billing-summury/a-billing-summury.component';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 @NgModule({
@@ -63,11 +66,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BillingDayEndComponent,
     PatientProfileComponent,
     DemopreviewComponent,
-    DialogContentExampleDialog
+    DialogContentExampleDialog,
+    AAddServiceComponent,
+    ABillingComponent,
+    ABillingSummuryComponent
   ],
   imports: [
-    BrowserModule,MatButtonModule,MatCheckboxModule,
-    MatMenuModule,MatDialogModule,
+    BrowserModule,MatButtonModule,MatCheckboxModule,MatChipsModule,
+    MatMenuModule,MatDialogModule,MatInputModule,
     FormsModule,HttpModule,Angular2CsvModule,
     NgxPrintModule,
     NgbModule.forRoot(),
@@ -92,6 +98,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       {path:'home/billing-day-end',component:BillingDayEndComponent,canActivate:[AuthGuard]},
       {path:'patient-profile',component:PatientProfileComponent,canActivate:[AuthGuard]},
       {path:'home/demo',component:DemopreviewComponent,canActivate:[AuthGuard]},
+      {path:'home/a-service',component:AAddServiceComponent,canActivate:[AuthGuard]},
+      {path:'home/a-billing',component:ABillingComponent,canActivate:[AuthGuard]},
+      {path:'home/a-summury',component:ABillingSummuryComponent,canActivate:[AuthGuard]},
+      
 
   ]), BrowserAnimationsModule
   

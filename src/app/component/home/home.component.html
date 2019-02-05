@@ -24,9 +24,9 @@
   <li class="nav-item">
     <a  routerLink="profile" class="nav-link"   >Profile Screen</a>
   </li>
-  <!-- <li class="nav-item">
+  <li class="nav-item">
     <a  routerLink="service" class="nav-link"   >Services</a>
-  </li> -->
+  </li>
   <li class="nav-item" >
     <a routerLink="billing" class="nav-link">Billing</a>
   </li>
@@ -35,6 +35,14 @@
   </li>
   <li class="nav-item">
     <a routerLink="demo" class="nav-link">Demo</a>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Billing & service</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item"  routerLink="a-service" >Service</a>
+      <a class="dropdown-item" routerLink="a-billing" >Billing</a>
+      <a class="dropdown-item" routerLink="a-summury" >Billing At Day End</a>
+    </div>
   </li>
   <li class="nav-item">
 <a name="" id="" class="btn btn-primary" (click)="logout()" role="button">Logout</a>

@@ -1,0 +1,139 @@
+<h2 style="text-align: center;background-color: cornflowerblue" >Billing Page</h2>
+<div class="container" >
+  <div class="col-md-3">
+    <mat-form-field class="example-full-width">
+      <input matInput #message maxlength="256" [(ngModel)]="name" (keyup.enter)="findbyname()"  placeholder="Entar name">
+      <mat-hint align="start"><strong>Search by Name</strong> </mat-hint>
+      <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+    </mat-form-field>
+  </div>
+  <div class="col-md-3">
+    <mat-form-field class="example-full-width">
+      <input type="number" (keyup.enter)="findbynumber()"  matInput #message [(ngModel)]="number" maxlength="256" placeholder="Entar Number">
+      <mat-hint align="start"><strong>Search by number</strong> </mat-hint>
+      <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+    </mat-form-field>
+  </div>
+  <div class="col-md-6" >
+    <table *ngIf="data" class="table table-bordered table-inverse table-responsive">
+      <thead class="thead-inverse">
+        <tr>
+          <th>sr</th>
+          <th> Name <span class="	fas fa-user-tie"></span> </th>
+          <th>Gurdian Name<span class="	fas fa-user"></span></th>
+          <th>email<span class="glyphicon glyphicon-envelope"></span></th>
+          <th>Mobile<span class="fab fa-mobile"></span></th>
+          
+        </tr>
+        </thead>
+        <tbody>
+          <tr (click)="test(item._id)"  *ngFor="let item of data;let i=index">
+            <td scope="row">{{i+1}}</td>
+            <td>{{item.first_name}} {{item.last_name}}</td>
+            <td>{{item.parent_name}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.primary_contact_number}}</td>
+          </tr>
+         
+        </tbody>
+        
+    </table>
+  </div>
+  <div class="col-md-4">
+    <table *ngIf="Services"  class="table table-light">
+      <thead class="thead-light">
+        <tr>
+          <th>S.N.</th>
+          <th>#Service name</th>
+          <th>charge</th>
+          <th>Action</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of Services;let i=index">
+          <td>{{i+1}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.charge}}</td>
+          <td><input type="button" value="add service to patient" (click)="addServiceToPatient(item._id)" ></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th><input type="button" value="bill"  (click)="billing()" class="btn btn-info">
+            <button printSectionId="print-section" ngxPrint>print</button>
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <div *ngIf="Services"  class="col-md-8" >
+   <div>
+    <div  class="container">
+      <h2>Invoice</h2>
+      <!-- <p>The panel-group class clears the bottom-margin. Try to remove the class and see what happens.</p> -->
+      <div id="print-section" class="panel-group">
+        <div class="panel panel-default">
+          <div class="panel-heading">Invoice#no</div>
+          <div class="panel-body">
+           <div class="container-fluid">
+            <div class="col-md-4">
+              <img src="../../../assets/logo.png" style="height: 25px;widows: 15px;">
+          </div>
+          <div class="col-md-4">
+         <div>
+          {{patser.first_name}} {{patser.last_name}}
+         </div>
+          </div>
+          <div class="col-md-4">
+            {{hospiatl_details.name}}
+          </div>
+          <div class="col-md-12">
+            <div   class="table-responsive">
+              <table   class="table table-striped table-bordered">
+                <thead>
+                  <tr  >
+                    <th>S. No.</th>
+                    <th>Service Name</th>
+                    <th>Charges</th>
+                    
+                   
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr  *ngFor="let item of servicedetailsall;let i=index"  >
+                    <td>{{i+1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.charge}}</td>
+                    <!-- <td *ngIf="item._id!=addser;else ddd" ><input type="button" class="btn btn-danger"  value="Delete" (click)="deleteserviceFromPatient(item._id)"  >
+                      <input type="button" value="add"  (click)="selectService(item._id)"   >
+                    </td> -->
+                    
+                    
+                  </tr>
+                 
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td></td>
+                    <td>Total</td>
+                    <td>{{totolserviceAmount}}</td>
+                  </tr>
+                </tfoot>
+                <!-- <tr *ngFor="let item of noname" >
+                  <td *ngIf="item._id!=addser;else ddd"  ><input type="button" value="add"  (click)="selectService(item._id)"   ></td>
+                </tr> -->
+              </table>
+            </div>
+          </div>
+           </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+   </div>
+  </div>
+  <div></div>
+</div>

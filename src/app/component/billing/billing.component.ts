@@ -100,7 +100,6 @@ export class BillingComponent implements OnInit {
   
   billing(){
     var obj={
-      aa:"raja",
       pat_id:this.c1,
       total:this.totolserviceAmount
     }
