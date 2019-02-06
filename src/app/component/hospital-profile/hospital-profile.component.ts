@@ -8,7 +8,7 @@ import { Http } from '@angular/http';
 })
 export class HospitalProfileComponent implements OnInit {
   hid;hdata;val=123;
-  name;email;phone;
+  name;email;phone;city;state;pincode;
   constructor(@Inject(Http) public http) { 
 
   }
