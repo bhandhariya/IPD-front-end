@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./a-billing-summury.component.css']
 })
 export class ABillingSummuryComponent implements OnInit {
-
+  ok=132;abhikidate;
   constructor() { }
 
   ngOnInit() {
+    this.ok=0;
+    console.log(this.abhikidate)
   }
+
 
 }

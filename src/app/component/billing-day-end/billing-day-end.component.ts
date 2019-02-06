@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Http, JsonpModule } from '@angular/http';
-
+import * as dateFormat  from "dateformat";
 
 
 @Component({
@@ -10,10 +10,12 @@ import { Http, JsonpModule } from '@angular/http';
 })
 export class BillingDayEndComponent implements OnInit {
   date=Date.now();id;Alldetails={};selectDate:Date;
+  now=new Date();
+  today;
+  
   constructor(@Inject(Http) public http) { }
   downloadAsExcel(){
   
-    
   }
   options = {
     fieldSeparator: ',',
@@ -30,7 +32,9 @@ export class BillingDayEndComponent implements OnInit {
   ngOnInit() {
     this.id=localStorage.getItem('hospital-id');
     this.getHospitalDetails();
-    
+    this.today=dateFormat(new Date(),"yyyy-mm-dd");
+    this.gettoDayBilling();
+        
   }
   getHospitalDetails(){
     var obj={
@@ -47,6 +51,16 @@ export class BillingDayEndComponent implements OnInit {
       billing_date:this.selectDate
       
     }
+    
+    
+    this.http.post('http://localhost:3000/billing/billingAtDayEnd',obj).subscribe(this.cb2);
+  }
+  gettoDayBilling(){
+    var obj={
+      billing_date:this.today
+      
+    }
+    
     
     this.http.post('http://localhost:3000/billing/billingAtDayEnd',obj).subscribe(this.cb2);
   }

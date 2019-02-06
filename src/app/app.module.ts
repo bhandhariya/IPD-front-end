@@ -6,7 +6,7 @@ import { RouterModule } from "@angular/router";
 import { JwtModule } from "@auth0/angular-jwt";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgxPrintModule } from "ngx-print";
-import { MatButtonModule,MatCheckboxModule, MatMenuModule, MatDialogModule, MatInputModule } from "@angular/material";
+import { MatButtonModule,MatCheckboxModule, MatMenuModule, MatDialogModule, MatInputModule, MatDatepickerModule, MatNativeDateModule } from "@angular/material";
 import { Angular2CsvModule } from 'angular2-csv';
 
 import { AppComponent } from './app.component';
@@ -75,7 +75,7 @@ import { HospitalProfileComponent } from './component/hospital-profile/hospital-
   ],
   imports: [
     BrowserModule,MatButtonModule,MatCheckboxModule,MatChipsModule,
-    MatMenuModule,MatDialogModule,MatInputModule,
+    MatMenuModule,MatDialogModule,MatInputModule,MatDatepickerModule,MatNativeDateModule,
     FormsModule,HttpModule,Angular2CsvModule,
     NgxPrintModule,
     NgbModule.forRoot(),
@@ -110,7 +110,7 @@ import { HospitalProfileComponent } from './component/hospital-profile/hospital-
   ]), BrowserAnimationsModule
   
   ],
-  providers: [AuthGuard,AuthService,AdminService,ManagerGuard],
+  providers: [AuthGuard,AuthService,AdminService,ManagerGuard,MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

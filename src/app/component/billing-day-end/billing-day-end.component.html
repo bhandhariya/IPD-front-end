@@ -5,7 +5,7 @@
               <div class="card-body p-0">
                   <div class="row p-5">
                       <div class="col-md-6">
-                          <img src="../../../assets/logo.png">
+                          <img width="150px" height="" src="../../../assets/logo.png">
                       </div>
 
                       <div class="col-md-6 text-right">
@@ -18,7 +18,7 @@
                       </div>
                   </div>
 
-                  <hr class="my-5">
+                  
 
                   <div id="print-section" >
 
@@ -42,38 +42,47 @@
 
                   <div class="row p-5">
                       <div class="col-md-12">
-                          <table class="table">
-                              <thead>
-                                  <tr>
-                                      <th class="border-0 text-uppercase small font-weight-bold">ID</th>
-                                      <th class="border-0 text-uppercase small font-weight-bold">Patient Name</th>
-                                      <th class="border-0 text-uppercase small font-weight-bold">Contact No.</th>
-                                    
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <tr *ngFor="let item of dayendData" >
-                                      <td>{{item.patient[0]._id}}</td>
-                                      <td>{{item.patient[0].first_name}} {{item.patient[0].last_name}} </td>
-                                      <td>{{item.patient[0].primary_contact_number}}</td><br>
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                            <th class="center">S.No.</th>
+                            <th>Patient Name</th>
+                            <th>Service details</th>
+                            
+                            <th class="right">Total</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let item of dayendData;index as i">
+                                <td>{{i+1}}</td>
+                                <td>{{item.patient[0].first_name}} {{item.patient[0].last_name}} </td>
+                                <td>
+                                  <table style="width:100%;">
+                                    <tr>
+                                      <th>sn</th>
+                                      <th>name</th>
+                                      <th>charge</th>
+                                    </tr>
+                                    <tr *ngFor="let ii of item.serviceDetailsssss;let j=index">
+                                      <td>{{j+1}}</td>
+                                      <td>{{ii.name}}</td>
+                                      <td>{{ii.charge}}</td>
+                                    </tr>
                                       
-                                    <table>
-                                        <tr>
-                                            <th>Service No</th>
-                                            <th>Service charge</th>
-                                        </tr>
-                                        <tr *ngFor="let ii of item.serviceDetailsssss" >
-                                            <td>{{ii.name}}</td>
-                                            <td>{{ii.charge}}</td>
-                                        </tr>
-                                        <th>total</th>
-                                        <td>{{item.total}}</td>
-                                    </table>
-                                  </tr>
-                                  <th>grand total</th>
-                                  <td>{{totolserviceAmount}}</td>
-                              </tbody>
-                          </table>
+                                    
+                                    
+                                    
+                                  </table></td>
+                                  <td>{{item.total}}</td>
+                            
+                            
+                            
+                            </tr>
+                            
+                            
+                            
+                            </tbody>
+                            </table>
                       </div>
                   </div>
 
