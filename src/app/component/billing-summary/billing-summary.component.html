@@ -1,0 +1,141 @@
+<div class="container">
+  <div class="card">
+<div class="card-header" style="text-align:center;">
+<strong style="font-size:40px;">Billing Summary</strong> 
+  <!--<span class="float-right"> <strong>Status:</strong> Pending</span>-->
+
+</div>
+<div class="card-body">
+    <div class="col-md-6 text-left">
+        <mat-form-field>
+            <input matInput
+                   name="start_time"
+                   #start_time="ngModel"
+                   [matDatepicker]="startDate"
+                   [min]="minDate"
+                   date="true"
+                   [(ngModel)]="planModel.start_time"  (change)="getDayBilling()"
+                   placeholder="Choose a date">
+            <mat-datepicker-toggle mdSuffix [for]="startDate"></mat-datepicker-toggle>
+            <mat-datepicker [startView]="dateStart" #startDate></mat-datepicker>
+          </mat-form-field>
+       <!-- <p class="font-weight-bold mb-1">Invoice #550</p>-->
+       <!-- <p class="text-muted"> {{date| date:'d/M/yy hh:mm' }}</p>-->
+       
+       <!-- <p class="font-weight-bold mb-1">
+          Today
+          <input  id="today" type="date" [(ngModel)]="selectDate"   (change)="getDayBilling()"  >
+        </p>-->
+    </div>
+<!--<div class="row mb-4">
+<div class="col-sm-10">
+<h6 class="mb-3">From:</h6>-->
+
+
+<!--<label>
+  Today:
+  
+  <input [owlDateTime]="dt1">
+  <span class="trigger" [owlDateTimeTrigger]="dt1">
+      <i class="fas fa-calendar-alt"></i>
+  </span>
+  <owl-date-time #dt1></owl-date-time>
+</label>
+</div>
+</div>-->
+
+
+
+
+
+
+
+
+
+
+<table class="table table-striped">
+<thead>
+<tr>
+<th class="center">S.No.</th>
+<th>Patient Name</th>
+<th>Service details</th>
+
+<th class="right">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let item of dayendData;index as i">
+    <td>{{i+1}}</td>
+    <td>{{item.patient[0].first_name}} {{item.patient[0].last_name}} </td>
+    <td>
+      <table style="width:100%;">
+        <tr>
+          <th>sn</th>
+          <th>name</th>
+          <th>charge</th>
+        </tr>
+        <tr *ngFor="let ii of item.serviceDetailsssss;let j=index">
+          <td>{{j+1}}</td>
+          <td>{{ii.name}}</td>
+          <td>{{ii.charge}}</td>
+        </tr>
+          
+        
+        
+        
+      </table></td>
+      <td>{{item.total}}</td>
+
+
+
+</tr>
+
+
+
+</tbody>
+</table>
+</div>
+<div class="row">
+<div class="col-lg-4 col-sm-5">
+
+</div>
+
+<div class="col-lg-4 col-sm-5 ml-auto">
+<table class="table table-clear">
+<tbody>
+<tr>
+<td class="left">
+<strong>Subtotal</strong>
+</td>
+<td class="right">$8.497,00</td>
+</tr>
+<tr>
+<td class="left">
+<strong>Discount (20%)</strong>
+</td>
+<td class="right">$1,699,40</td>
+</tr>
+<tr>
+<td class="left">
+ <strong>VAT (10%)</strong>
+</td>
+<td class="right">$679,76</td>
+</tr>
+<tr>
+<td class="left">
+<strong>Total</strong>
+</td>
+<td class="right">
+<strong>$7.477,36</strong>
+</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+<!--</div>-->

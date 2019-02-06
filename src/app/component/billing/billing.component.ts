@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Http } from '@angular/http';
-
+import{ToastrService} from 'ngx-toastr';
 @Component({
   selector: 'app-billing',
   templateUrl: './billing.component.html',
@@ -8,7 +8,7 @@ import { Http } from '@angular/http';
 })
 export class BillingComponent implements OnInit {
   id;Alldetails;allPatDetails={};c1:string;noname;
-  constructor(@Inject(Http) public http) { }
+  constructor(@Inject(Http) public http,private toastr:ToastrService) { }
 
   ngOnInit() {
     this.id=localStorage.getItem('hospital-id');
@@ -17,6 +17,7 @@ export class BillingComponent implements OnInit {
     this.getAllServices();
     
   }
+  
   getHospitalDetails(){
     var obj={
       id:this.id
@@ -72,6 +73,7 @@ export class BillingComponent implements OnInit {
     // console.log(obj.service_id)
     // console.log(obj.hos_id)
     this.http.post('http://localhost:3000/patient/addService',obj).subscribe(this.cb5)
+    this.toastr.success("Patient's Service Addedd Successfully","Success");
   }
   cb5=(dt)=>{
     alert(dt._body)
@@ -93,6 +95,7 @@ export class BillingComponent implements OnInit {
   deleteserviceFromPatient(x){
     var obj={
       id:x
+
     }
     alert('delete not prepared')
   }

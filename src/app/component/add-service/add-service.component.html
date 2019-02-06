@@ -1,7 +1,12 @@
 <h2>Add Service Screen</h2>
 <p>Type something in the input field to search the table for Service name, charges</p>  
-<input id="myInput" type="text" placeholder="Search.."><br>
-<br><br>
+<!--<input id="myInput" type="text" placeholder="Search.."><br>-->
+<input type="text" [(ngModel)]="search1" class="form-control"  placeholder="Search Contact"><i class="fa fa-search"></i>
+<!--<div *ngFor=" let cont of obj  | searchField:'name,charge':search1">-->
+<!--  <div (click)="FetchData(cont)">FirstName : {{cont.FirstName}},DisplayName : {{cont.DisplayName}}, Phone : {{cont.HomePhone}}</div>-->
+      <div>  
+</div>
+  <br><br>
 
 <table class="table table-light">
   <thead class="thead-light">
@@ -9,13 +14,13 @@
       <th>SN</th>
       <th>Service Name</th>
       <th>Charge</th>
-      <th>edit</th>
-      <th>delete</th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of Services;let i = index;" >
-      <td *ngIf="item._id!=bgloid;else temp"  >{{i+1}}</td>
+    <tr *ngFor="let item of Services|searchField:'name,charge':search1;let i = index;" >
+      <td *ngIf="item._id!=bgloid;else temp">{{i+1}}</td>
       <td *ngIf="item._id!=bgloid" >{{item.name}}</td>
       <td *ngIf="item._id!=bgloid" >{{item.charge}}</td>
       <td *ngIf="item._id!=bgloid" >

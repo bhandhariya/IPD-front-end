@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Http } from '@angular/http';
+import{ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -8,7 +9,7 @@ import { Http } from '@angular/http';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(@Inject(Http) public http) { }
+  constructor(@Inject(Http) public http,private toastr:ToastrService) { }
   username;name;password;
   ngOnInit() {
     
@@ -20,6 +21,7 @@ export class RegisterComponent implements OnInit {
       password:this.password
     }
     this.http.post('http://localhost:3000/hospital/register',obj).subscribe(dt=>alert(dt._body))
+    this.toastr.success('Register Successfully','Success');
   }
 
 }

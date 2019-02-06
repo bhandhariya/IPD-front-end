@@ -6,7 +6,38 @@ import { RouterModule } from "@angular/router";
 import { JwtModule } from "@auth0/angular-jwt";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgxPrintModule } from "ngx-print";
-import { MatButtonModule,MatCheckboxModule, MatMenuModule, MatDialogModule } from "@angular/material";
+import { MatButtonModule, MatAutocompleteModule,
+  
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatExpansionModule,
+  MatFormFieldModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule
+} from "@angular/material";
 // import { Angular2CsvModule } from 'angular2-csv';
 //import {ToastModule} from 'ng2-toastr/ng2-toastr';
 import { AppComponent } from './app.component';
@@ -38,7 +69,10 @@ import { PatientProfileComponent } from './component/patient-profile/patient-pro
 import { DemopreviewComponent, DialogContentExampleDialog } from './component/demopreview/demopreview.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ToastrModule} from 'ngx-toastr';
-
+import {SearchPipe} from './custom.pipe';
+import { BillingSummaryComponent } from './component/billing-summary/billing-summary.component';
+import {OwlDateTimeModule,OwlNativeDateTimeModule} from 'ng-pick-datetime';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @NgModule({
   declarations: [
@@ -63,12 +97,46 @@ import {ToastrModule} from 'ngx-toastr';
     BillingDayEndComponent,
     PatientProfileComponent,
     DemopreviewComponent,
-    DialogContentExampleDialog
+    DialogContentExampleDialog,
+    SearchPipe,
+    BillingSummaryComponent,
+    
   ],
   imports: [
     BrowserModule,MatButtonModule,MatCheckboxModule,ToastrModule.forRoot(),
-    MatMenuModule,MatDialogModule,
-    FormsModule,HttpModule,
+    MatMenuModule,MatDialogModule,MatDatepickerModule,MatFormFieldModule, MatNativeDateModule,MatButtonToggleModule,MatIconModule,MatButtonModule,MatIconModule,MatInputModule,MatListModule,MatGridListModule,MatSelectModule,
+    FormsModule,HttpModule,OwlDateTimeModule,OwlNativeDateTimeModule, MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    
     NgxPrintModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
@@ -92,11 +160,12 @@ import {ToastrModule} from 'ngx-toastr';
       {path:'home/billing-day-end',component:BillingDayEndComponent,canActivate:[AuthGuard]},
       {path:'patient-profile',component:PatientProfileComponent,canActivate:[AuthGuard]},
       {path:'home/demo',component:DemopreviewComponent,canActivate:[AuthGuard]},
+      {path:'home/billing-summary',component:BillingSummaryComponent}
 
   ]), BrowserAnimationsModule
   
   ],
-  providers: [AuthGuard,AuthService,AdminService,ManagerGuard],
+  providers: [AuthGuard,AuthService,AdminService,ManagerGuard,MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
