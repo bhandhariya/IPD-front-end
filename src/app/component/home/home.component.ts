@@ -37,5 +37,8 @@ export class HomeComponent implements OnInit {
     localStorage.removeItem('hospital-id');
     this.router.navigate(['login'])
   }
+  hosprofile(){
+    this.router.navigate(['profile'])
+  }
 
 }

@@ -41,6 +41,7 @@ import { AAddServiceComponent } from './component/a-add-service/a-add-service.co
 import { ABillingComponent } from './component/a-billing/a-billing.component';
 import { ABillingSummuryComponent } from './component/a-billing-summury/a-billing-summury.component';
 import {MatChipsModule} from '@angular/material/chips';
+import { HospitalProfileComponent } from './component/hospital-profile/hospital-profile.component';
 
 
 @NgModule({
@@ -69,7 +70,8 @@ import {MatChipsModule} from '@angular/material/chips';
     DialogContentExampleDialog,
     AAddServiceComponent,
     ABillingComponent,
-    ABillingSummuryComponent
+    ABillingSummuryComponent,
+    HospitalProfileComponent
   ],
   imports: [
     BrowserModule,MatButtonModule,MatCheckboxModule,MatChipsModule,
@@ -101,6 +103,8 @@ import {MatChipsModule} from '@angular/material/chips';
       {path:'home/a-service',component:AAddServiceComponent,canActivate:[AuthGuard]},
       {path:'home/a-billing',component:ABillingComponent,canActivate:[AuthGuard]},
       {path:'home/a-summury',component:ABillingSummuryComponent,canActivate:[AuthGuard]},
+      {path:'profile',component:HospitalProfileComponent,canActivate:[AuthGuard]}
+      
       
 
   ]), BrowserAnimationsModule
