@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Http } from '@angular/http';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-a-billing',
@@ -8,7 +9,7 @@ import { Http } from '@angular/http';
 })
 export class ABillingComponent implements OnInit {
   name;number;data;hos_id;Services;pid;
-  constructor(@Inject(Http) public http) { }
+  constructor(@Inject(Http) public http,private toastr:ToastrService) { }
 test(e){
   this.pid=e;
   var obj={
@@ -94,10 +95,11 @@ hoscb=(dt)=>{
     // console.log(obj.service_id)
     // console.log(obj.hos_id)
     this.http.post('http://localhost:3000/patient/addService',obj).subscribe(this.cb5)
+    this.toastr.success('Serive Addedd Successfully','Success')
   }
   addser=0;
   cb5=(dt)=>{
-    alert(dt._body)
+    //alert(dt._body)
     this.addser=0;
     this.getPateintServiceDetails();
   }
@@ -110,6 +112,18 @@ hoscb=(dt)=>{
   }
   cbb=(dt)=>{
     alert(dt._body)
+  }
+  delete(x){
+    var obj={
+      id:x
+    }
+    alert(obj.id)
+    // this.http.post('http://localhost:3000/service/deletebyid',obj).subscribe(this.dlcb)
+    // this.toastr.error('Service Deleted Successfully','Success');
+  }
+  dlcb=(dt)=>{
+    //alert(dt._body);
+   // this.fetchAllPatients();
   }
 
 }

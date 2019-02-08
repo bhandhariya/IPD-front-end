@@ -42,8 +42,8 @@ import { ABillingComponent } from './component/a-billing/a-billing.component';
 import { ABillingSummuryComponent } from './component/a-billing-summury/a-billing-summury.component';
 import {MatChipsModule} from '@angular/material/chips';
 import { HospitalProfileComponent } from './component/hospital-profile/hospital-profile.component';
-
-
+import {ToastrModule} from 'ngx-toastr';
+import {AngularFontAwesomeModule} from 'angular-font-awesome';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,9 +76,9 @@ import { HospitalProfileComponent } from './component/hospital-profile/hospital-
   imports: [
     BrowserModule,MatButtonModule,MatCheckboxModule,MatChipsModule,
     MatMenuModule,MatDialogModule,MatInputModule,MatDatepickerModule,MatNativeDateModule,
-    FormsModule,HttpModule,Angular2CsvModule,
+    FormsModule,HttpModule,Angular2CsvModule,BrowserAnimationsModule,AngularFontAwesomeModule,
     NgxPrintModule,
-    NgbModule.forRoot(),
+    NgbModule.forRoot(),ToastrModule.forRoot(),
     RouterModule.forRoot([
       {path:"",component:LoginComponent},
       {path:"login",component:LoginComponent},
@@ -107,7 +107,7 @@ import { HospitalProfileComponent } from './component/hospital-profile/hospital-
       
       
 
-  ]), BrowserAnimationsModule
+  ])
   
   ],
   providers: [AuthGuard,AuthService,AdminService,ManagerGuard,MatDatepickerModule],

@@ -2,6 +2,7 @@ import { Component, OnInit,ViewEncapsulation, Inject } from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { Http } from '@angular/http';
 import { ResourceLoader } from '@angular/compiler';
+import {ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-quick-patient',
@@ -21,7 +22,7 @@ export class QuickPatientComponent implements OnInit {
   income;town;religion;country;family_type;nationality;locality;info_source;
   url="http://localhost:3000/patient"
 
-constructor(@Inject(Http) public http,private modalService: NgbModal) {}
+constructor(@Inject(Http) public http,private modalService: NgbModal,private toastr:ToastrService) {}
   openLg(content) {
   this.modalService.open(content, { size: 'lg' });
 }
@@ -71,7 +72,8 @@ save(){
 
   }
   this.http.post(this.url+'/addPatient',obj).subscribe(dt=>{
-    alert(dt._body)
+    //alert(dt._body)
+    this.toastr.success('Patient Information Addedd Successfully','Success');
     window.location.reload();  
     
   })

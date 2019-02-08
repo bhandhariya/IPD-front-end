@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Http } from '@angular/http';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-a-add-service',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AAddServiceComponent implements OnInit {
 
-  constructor(@Inject(Http) public http,public arour:Router) { }
+  constructor(@Inject(Http) public http,public arour:Router,public toastr:ToastrService) { }
   Services;a;name;charge;Alldetails={};
   ngOnInit() {
     this.a=localStorage.getItem('hospital-id');
@@ -37,9 +38,10 @@ export class AAddServiceComponent implements OnInit {
       hospital_id:this.a
     }
     this.http.post('http://localhost:3000/service/createService',obj).subscribe(this.cb);
+    this.toastr.success("Service Addedd Successfully","Success");
   }
   cb=(dt)=>{
-    alert(dt._body);
+   // alert(dt._body);
     this.fetchAllPatients();
     window.location.reload();
   }
@@ -57,9 +59,10 @@ export class AAddServiceComponent implements OnInit {
       charge:this.price
     }
     this.http.post('http://localhost:3000/service/update',obj).subscribe(this.un)
+    this.toastr.success('Service Edited Successfully','Success');
   }
   un=(dt)=>{
-    alert(dt._body);
+    //alert(dt._body);
     this.fetchAllPatients();
     this.bgloid=0;
   }
@@ -68,9 +71,10 @@ export class AAddServiceComponent implements OnInit {
       id:x
     }
     this.http.post('http://localhost:3000/service/deletebyid',obj).subscribe(this.dlcb)
+    this.toastr.error('Service Deleted Successfully','Success');
   }
   dlcb=(dt)=>{
-    alert(dt._body);
+    //alert(dt._body);
     this.fetchAllPatients();
   }
 

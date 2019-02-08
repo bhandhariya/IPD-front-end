@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-a-billing-summury',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ABillingSummuryComponent implements OnInit {
   ok=132;abhikidate;
-  constructor() { }
+  constructor(private toastr:ToastrService) { }
 
   ngOnInit() {
     this.ok=0;

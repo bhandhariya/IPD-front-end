@@ -2,14 +2,14 @@
 <div class="container" >
   <div class="col-md-3">
     <mat-form-field class="example-full-width">
-      <input matInput #message maxlength="256" [(ngModel)]="name" (keyup.enter)="findbyname()"  placeholder="Entar name">
+      <input matInput #message maxlength="256" [(ngModel)]="name" (keyup.enter)="findbyname()"  placeholder="Enter Name">
       <mat-hint align="start"><strong>Search by Name</strong> </mat-hint>
       <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
     </mat-form-field>
   </div>
   <div class="col-md-3">
     <mat-form-field class="example-full-width">
-      <input type="number" (keyup.enter)="findbynumber()"  matInput #message [(ngModel)]="number" maxlength="256" placeholder="Entar Number">
+      <input type="number" (keyup.enter)="findbynumber()"  matInput #message [(ngModel)]="number" maxlength="256" placeholder="Enter Number">
       <mat-hint align="start"><strong>Search by number</strong> </mat-hint>
       <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
     </mat-form-field>
@@ -55,13 +55,13 @@
           <td>{{i+1}}</td>
           <td>{{item.name}}</td>
           <td>{{item.charge}}</td>
-          <td><input type="button" value="add service to patient" (click)="addServiceToPatient(item._id)" ></td>
+          <td><input type="button" class="btn btn-info"  value="Add" (click)="addServiceToPatient(item._id)" ></td>
         </tr>
       </tbody>
       <tfoot>
         <tr>
-          <th><input type="button" value="bill"  (click)="billing()" class="btn btn-info">
-            <button printSectionId="print-section" ngxPrint>print</button>
+          <th><input type="button" value="Generate Bill"  (click)="billing()" class="btn btn-info">
+            <span><button printSectionId="print-section" class="btn btn-info" ngxPrint>print</button></span>
           </th>
         </tr>
       </tfoot>
@@ -110,7 +110,9 @@
                       <input type="button" value="add"  (click)="selectService(item._id)"   >
                     </td> -->
                     
-                    
+                    <td><button (click)="delete(item._id)" type="button" class="btn btn-default btn-sm"><i class="fas fa-trash-alt" style="color:red; font-size:10px"></i>
+                      <!--<span class="glyphicon glyphicon-remove"></span> -->
+                    </button></td>
                   </tr>
                  
                 </tbody>

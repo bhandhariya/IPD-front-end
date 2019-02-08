@@ -1,13 +1,14 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import * as $ from 'jquery';
 import { Http } from '@angular/http';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-add-service',
   templateUrl: './add-service.component.html',
   styleUrls: ['./add-service.component.css']
 })
 export class AddServiceComponent implements OnInit {
+  constructor(@Inject(Http) public http,public toastr:ToastrService) { }
   name;charge;Services;i=0;serviceName;price
   bgloid=0;
   tab(x){
@@ -23,14 +24,16 @@ export class AddServiceComponent implements OnInit {
       charge:this.price
     }
     this.http.post('http://localhost:3000/service/update',obj).subscribe(this.un)
+    
   }
   un=(dt)=>{
-    alert(dt._body);
+   // alert(dt._body);
     this.fetchAllPatients();
     this.bgloid=0;
+    
   }
   a=localStorage.getItem('hospital-id');
-  constructor(@Inject(Http) public http) { }
+  
 
   ngOnInit() {
     $(document).ready(function(){
@@ -52,6 +55,9 @@ export class AddServiceComponent implements OnInit {
       hospital_id:this.a
     }
     this.http.post('http://localhost:3000/service/createService',obj).subscribe(this.cb);
+    this.toastr.success('service addess successfully','Success');
+    
+
   }
   cb=(dt)=>{
     alert(dt._body);

@@ -32,8 +32,9 @@
 
 
 <div>
-  <div class="container" >
-    <div class="col-md-2">
+  <div class="container"  >
+  
+    <div class="col-md-2"  >
       <label>Service Name :
         <input list="browsers" class="form-control"  [(ngModel)]="name" name="myBrowser" /></label>
         <datalist  id="browsers">
@@ -45,55 +46,59 @@
     <div class="col-md-2">
       <label>Service Charges:
         <input type="number"  class="form-control"  [(ngModel)]="charge"  /></label>
-        <input type="button" (click)="create()"  value="Add Service" class="btn btn-info" >
-    </div>
-    <div  class="col-md-8">
-      <table border="1" class="table table-light">
-        <thead class="thead-light">
-          <tr>
-            <th>SN</th>
-            <th>Service Name</th>
-            <th>Charges</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of Services;let i = index;" >
-            <td *ngIf="item._id!=bgloid;else temp"  >{{i+1}}</td>
-            <td *ngIf="item._id!=bgloid" >{{item.name}}</td>
-            <td *ngIf="item._id!=bgloid" >{{item.charge}}</td>
-            <td *ngIf="item._id!=bgloid" >
-              <!-- <input type="button" class="btn btn-success" (click)="tab(item)" value="Edit"  > -->
-      <!-- <span class="glyphicon glyphicon-pencil" (click)="test()" ></span>
-      <span class="glyphicon glyphicon-remove" (click)="test()" ></span> -->
-      <button type="button" (click)="tab(item)" class="btn btn-default btn-sm">
-        <span class="glyphicon glyphicon-pencil"></span> 
-      </button>
-      <button (click)="delete(item._id)" type="button" class="btn btn-default btn-sm">
-        <span class="glyphicon glyphicon-remove"></span> 
-      </button>
-      
-            </td>
-            <!-- <td *ngIf="item._id!=bgloid">
-              <input type="button" (click)="delete(item._id)"  value="Delete"  class="btn btn-danger" ></td> -->
-          </tr>
-        </tbody>
-        <tfoot>
-          <!-- <tr>
-            <th><input type="button" class="btn btn-primary" value="add services"></th>
-          </tr> -->
-        </tfoot>
-      </table>
-    </div>
+       <span> <input type="button" (click)="create()"  value="Add Service" class="btn btn-info" ></span>
+    
+  </div>
+
+ 
+    
     
     </div>
 
-<hr>
-<mat-chip color="primary"><input type="button" value="Go to Billing Page" (click)="gotobilling()" ></mat-chip>
+<hr style="border-color:black;">
+<div  class="col-md-8">
+    <table border="1" class="table table-light">
+      <thead class="thead-light">
+        <tr>
+          <th>SN</th>
+          <th>Service Name</th>
+          <th>Charges</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of Services;let i = index;" >
+          <td *ngIf="item._id!=bgloid;else temp"  >{{i+1}}</td>
+          <td *ngIf="item._id!=bgloid" >{{item.name}}</td>
+          <td *ngIf="item._id!=bgloid" >{{item.charge}}</td>
+          <td *ngIf="item._id!=bgloid" >
+            <!-- <input type="button" class="btn btn-success" (click)="tab(item)" value="Edit"  > -->
+    <!-- <span class="glyphicon glyphicon-pencil" (click)="test()" ></span>
+    <span class="glyphicon glyphicon-remove" (click)="test()" ></span> -->
+    <button type="button" (click)="tab(item)" class="btn btn-default btn-sm"><i class="fas fa-pencil-alt"  style="color:royalblue;font-size:10px"></i>
+     <!-- <span class="glyphicon glyphicon-pencil"></span> -->
+    </button>
+    <button (click)="delete(item._id)" type="button" class="btn btn-default btn-sm"><i class="fas fa-trash-alt" style="color:red; font-size:10px"></i>
+      <!--<span class="glyphicon glyphicon-remove"></span> -->
+    </button>
+    
+          </td>
+          <!-- <td *ngIf="item._id!=bgloid">
+            <input type="button" (click)="delete(item._id)"  value="Delete"  class="btn btn-danger" ></td> -->
+        </tr>
+      </tbody>
+      <tfoot>
+        <!-- <tr>
+          <th><input type="button" class="btn btn-primary" value="add services"></th>
+        </tr> -->
+      </tfoot>
+    </table>
+  </div>
+<!--<mat-chip color="primary"><input type="button" value="Go to Billing Page" (click)="gotobilling()" ></mat-chip>
 <mat-chip-list>
   <mat-chip color="accent" selected>Billing Summury</mat-chip>
   
-</mat-chip-list>
+</mat-chip-list>-->
 
 
 

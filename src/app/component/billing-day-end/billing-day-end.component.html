@@ -58,11 +58,11 @@
                                 <td>{{item.patient[0].first_name}} {{item.patient[0].last_name}} </td>
                                 <td>
                                   <table style="width:100%;">
-                                    <tr>
+                                    <!-- <tr>
                                       <th>sn</th>
                                       <th>name</th>
                                       <th>charge</th>
-                                    </tr>
+                                    </tr> -->
                                     <tr *ngFor="let ii of item.serviceDetailsssss;let j=index">
                                       <td>{{j+1}}</td>
                                       <td>{{ii.name}}</td>
@@ -92,15 +92,9 @@
                           <div class="h2 font-weight-light">₹{{totolserviceAmount}}</div>
                       </div>
 
-                      <div class="py-3 px-5 text-right">
-                          <div class="mb-2">Discount</div>
-                          <div class="h2 font-weight-light"></div>
-                      </div>
+                      
 
-                      <div class="py-3 px-5 text-right">
-                          <div class="mb-2">Sub - Total amount</div>
-                          <div class="h2 font-weight-light"></div>
-                      </div>
+                      
                   </div>
 
 

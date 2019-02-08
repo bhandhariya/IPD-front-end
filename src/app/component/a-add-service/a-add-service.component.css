@@ -57,3 +57,9 @@ a:focus, a:hover {
     font-weight: 700;
     margin-right: 10px;
 }
+.div1 {
+    width: 400px;
+    height: 400px;
+    border: 1px solid blue; 
+   
+}
