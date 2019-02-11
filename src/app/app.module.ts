@@ -6,7 +6,7 @@ import { RouterModule } from "@angular/router";
 import { JwtModule } from "@auth0/angular-jwt";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgxPrintModule } from "ngx-print";
-import { MatButtonModule,MatCheckboxModule, MatMenuModule, MatDialogModule, MatInputModule, MatDatepickerModule, MatNativeDateModule } from "@angular/material";
+import { MatButtonModule,MatCheckboxModule, MatMenuModule, MatDialogModule, MatInputModule, MatDatepickerModule, MatNativeDateModule, MatGridListModule } from "@angular/material";
 import { Angular2CsvModule } from 'angular2-csv';
 
 import { AppComponent } from './app.component';
@@ -42,6 +42,8 @@ import { ABillingComponent } from './component/a-billing/a-billing.component';
 import { ABillingSummuryComponent } from './component/a-billing-summury/a-billing-summury.component';
 import {MatChipsModule} from '@angular/material/chips';
 import { HospitalProfileComponent } from './component/hospital-profile/hospital-profile.component';
+import { Json2csvdataComponent } from './component/json2csvdata/json2csvdata.component';
+import { InvoiceComponent } from './component/invoice/invoice.component';
 
 
 @NgModule({
@@ -71,11 +73,13 @@ import { HospitalProfileComponent } from './component/hospital-profile/hospital-
     AAddServiceComponent,
     ABillingComponent,
     ABillingSummuryComponent,
-    HospitalProfileComponent
+    HospitalProfileComponent,
+    Json2csvdataComponent,
+    InvoiceComponent
   ],
   imports: [
     BrowserModule,MatButtonModule,MatCheckboxModule,MatChipsModule,
-    MatMenuModule,MatDialogModule,MatInputModule,MatDatepickerModule,MatNativeDateModule,
+    MatMenuModule,MatDialogModule,MatInputModule,MatDatepickerModule,MatNativeDateModule,MatGridListModule,
     FormsModule,HttpModule,Angular2CsvModule,
     NgxPrintModule,
     NgbModule.forRoot(),
@@ -88,7 +92,7 @@ import { HospitalProfileComponent } from './component/hospital-profile/hospital-
       {path:'home/formc',component:FormCComponent,canActivate:[AuthGuard]},
       {path:'home/formd',component:FormDComponent,canActivate:[AuthGuard]},
       {path:'home/forme',component:FormEComponent,canActivate:[AuthGuard]},
-      {path:'home/formf',component:FormFComponent,canActivate:[AuthGuard]},
+      {path:'home/formF',component:FormFComponent,canActivate:[AuthGuard]},
       {path:'home/formg',component:FormGComponent,canActivate:[AuthGuard]},
       {path:'home/formh',component:FormHComponent,canActivate:[AuthGuard]},
       {path:'home/form10',component:Form10Component,canActivate:[AuthGuard]},
@@ -103,7 +107,9 @@ import { HospitalProfileComponent } from './component/hospital-profile/hospital-
       {path:'home/a-service',component:AAddServiceComponent,canActivate:[AuthGuard]},
       {path:'home/a-billing',component:ABillingComponent,canActivate:[AuthGuard]},
       {path:'home/a-summury',component:ABillingSummuryComponent,canActivate:[AuthGuard]},
-      {path:'profile',component:HospitalProfileComponent,canActivate:[AuthGuard]}
+      {path:'profile',component:HospitalProfileComponent,canActivate:[AuthGuard]},
+      {path:'home/json2csv',component:Json2csvdataComponent,canActivate:[AuthGuard]},
+      {path:'home/invoice',component:InvoiceComponent,canActivate:[AuthGuard]}
       
       
 
