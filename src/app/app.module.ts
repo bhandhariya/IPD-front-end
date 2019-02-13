@@ -44,6 +44,11 @@ import {MatChipsModule} from '@angular/material/chips';
 import { HospitalProfileComponent } from './component/hospital-profile/hospital-profile.component';
 import { Json2csvdataComponent } from './component/json2csvdata/json2csvdata.component';
 import { InvoiceComponent } from './component/invoice/invoice.component';
+import { SectionComponent } from './component/sections/section/section.component';
+import { Section85Component } from './component/sections/section85/section85.component';
+import { Section86Component } from './component/sections/section86/section86.component';
+import { Section89Component } from './component/sections/section89/section89.component';
+import { Section90Component } from './component/sections/section90/section90.component';
 
 
 @NgModule({
@@ -75,7 +80,12 @@ import { InvoiceComponent } from './component/invoice/invoice.component';
     ABillingSummuryComponent,
     HospitalProfileComponent,
     Json2csvdataComponent,
-    InvoiceComponent
+    InvoiceComponent,
+    SectionComponent,
+    Section85Component,
+    Section86Component,
+    Section89Component,
+    Section90Component
   ],
   imports: [
     BrowserModule,MatButtonModule,MatCheckboxModule,MatChipsModule,
@@ -109,7 +119,12 @@ import { InvoiceComponent } from './component/invoice/invoice.component';
       {path:'home/a-summury',component:ABillingSummuryComponent,canActivate:[AuthGuard]},
       {path:'profile',component:HospitalProfileComponent,canActivate:[AuthGuard]},
       {path:'home/json2csv',component:Json2csvdataComponent,canActivate:[AuthGuard]},
-      {path:'home/invoice',component:InvoiceComponent,canActivate:[AuthGuard]}
+      {path:'home/invoice',component:InvoiceComponent,canActivate:[AuthGuard]},
+      {path:'home/demo/sections85',component:Section85Component,canActivate:[AuthGuard]},
+      {path:'home/demo/sections86',component:Section86Component,canActivate:[AuthGuard]},
+      {path:'home/demo/sections89',component:Section89Component,canActivate:[AuthGuard]},
+      {path:'home/demo/sections90',component:Section90Component,canActivate:[AuthGuard]}
+      
       
       
 

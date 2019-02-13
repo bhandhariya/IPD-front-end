@@ -1,0 +1,92 @@
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mental Act Sections</title>
+</head>
+
+<body>
+
+  <div class="row">
+  <div class="large-12 columns">
+  <div class="nav-bar right">
+  <ul class="button-group">
+  <li><a (click)="section85()" class="button">Section 85</a></li>
+  <li><a (click)="section86()" class="button">Section 86</a></li>
+  <li><a (click)="section89()" class="button">Section 89</a></li>
+  <li><a (click)="section90()" class="button">Section 90</a></li>
+  </ul>
+  </div>
+  <h1>Section 85<small><br>Patient Addmission</small></h1>
+  <hr />
+  </div>
+  </div>
+  
+  
+  <div class="row">
+    <div class="polls">
+      <h5 class="polls-question">
+        <span class="polls-question-label">Q:</span>
+        Whether Patient has <strong>Capacity to Understand</strong>?
+      </h5>
+      <div class="polls-options">
+        <div>
+          <input type="radio"  name="QQQ1" [(ngModel)]="Q1" value="Yes" id="programmingJavascript" required>
+          <label for="Q1ofyes">Yes</label>
+        </div>
+        <div>
+          <input type="radio" name="QQQ1" value="No" [(ngModel)]="Q1"  id="programmingRuby" required>
+          <label for="Q1ofno">No</label>
+        </div>
+      </div>
+      <div class="polls-submit">
+        <input type="submit" class="button" (click)="q1()"  value="Submit">
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="Q11"  class="row">
+    <div class="polls">
+      <h5 class="polls-question">
+       
+       <span style="color: red"> As per Mental Act, patient is supposed to be admitted under section 85.</span><br>
+       <span class="polls-question-label"> Q.</span> Would you like to admit under Section 85 ?
+      </h5>
+      <div class="polls-options">
+        <div>
+          <input type="radio"  name="QQQ2" [(ngModel)]="Q2" value="Yess"  required>
+          <label for="Q2ofyes">Yes</label>
+        </div>
+        <div>
+          <input type="radio" name="QQQ2" value="Noo" [(ngModel)]="Q2"  required>
+          <label for="Q2ofno">No</label>
+        </div>
+      </div>
+      <div class="polls-submit">
+        <input type="submit" class="button" (click)="q2()"  value="Submit">
+      </div>
+    </div>
+  </div>
+  
+  
+  <footer class="row">
+  <div class="large-12 columns">
+  <hr />
+  <div class="row">
+  <div class="large-6 columns">
+  <p>&copy; Copyright no one at all. Go to town.</p>
+  </div>
+  <div class="large-6 columns">
+  <ul class="inline-list right">
+  <li><a (click)="section85()">Section 85</a></li>
+  <li><a (click)="section86()">Section 86</a></li>
+  <li><a (click)="section89()">Section 89</a></li>
+  <li><a (click)="section90()">Section 90</a></li>
+  </ul>
+  </div>
+  </div>
+  </div>
+  </footer>
+  </body>
+</html>
