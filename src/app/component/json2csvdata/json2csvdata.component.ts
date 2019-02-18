@@ -8947,11 +8947,11 @@ cbbbbbbb=(dt)=>{
   }
 
   final(){
-    this.http.post('http://localhost:4000/api/patients/check').subscribe(this.finale) 
+    this.http.post('http://localhost:4000/api/appointments/finDoctorName').subscribe(this.finale) 
   }
   finale=(dt)=>{
     var dat=JSON.parse(dt._body); 
-    jsonexport(dat.body, {fillGaps: true   }, function(err, csv){
+    jsonexport(dat.body, function(err, csv){
         if(err) return console.log(err);
         saveAs(new Blob([csv],{type:'text/json'}),'finalData.csv')
     });

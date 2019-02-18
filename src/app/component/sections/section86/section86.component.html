@@ -32,11 +32,11 @@
       </h5>
       <div class="polls-options">
         <div>
-          <input type="radio"  name="QQQ1" [(ngModel)]="Q1" value="Yes" id="q1y" required>
+          <input type="radio" (click)="admit1()" name="QQQ1" [(ngModel)]="Q1" value="Yes" id="q1y" required>
           <label for="Q1ofyes">Yes</label>
         </div>
         <div>
-          <input type="radio" name="QQQ1" value="No" [(ngModel)]="Q1"  id="q2n" required>
+          <input type="radio" (click)="admit1()" name="QQQ1" value="No" [(ngModel)]="Q1"  id="q2n" required>
           <label for="Q1ofno">No</label>
         </div>
       </div>
@@ -54,11 +54,11 @@
       </h5>
       <div class="polls-options">
         <div>
-          <input type="radio"  name="QQQ2" [(ngModel)]="Q2" value="Yes" id="q2y" required>
+          <input type="radio" (click)="admit1()"  name="QQQ2" [(ngModel)]="Q2" value="Yes" id="q2y" required>
           <label for="Q2ofyes">Yes</label>
         </div>
         <div>
-          <input type="radio" name="QQQ2" value="No" [(ngModel)]="Q2"  id="q2n" required>
+          <input type="radio" (click)="admit1()" name="QQQ2" value="No" [(ngModel)]="Q2"  id="q2n" required>
           <label for="Q2ofno">No</label>
         </div>
       </div>
@@ -76,17 +76,17 @@
       </h5>
       <div class="polls-options">
         <div>
-          <input type="radio"  name="QQQ3" [(ngModel)]="Q3" value="Yes" id="q3y" required>
+          <input type="radio" (click)="admit1()"  name="QQQ3" [(ngModel)]="Q3" value="Yes" id="q3y" required>
           <label for="Q3ofyes">Yes</label>
         </div>
         <div>
-          <input type="radio" name="QQQ3" value="No" [(ngModel)]="Q3"  id="q3n" required>
+          <input type="radio" (click)="admit1()" name="QQQ3" value="No" [(ngModel)]="Q3"  id="q3n" required>
           <label for="Q3ofno">No</label>
         </div>
       </div>
-      <div class="polls-submit">
+      <!-- <div class="polls-submit">
         <input type="submit" class="button" (click)="admit1()"  value="Submit">
-      </div>
+      </div> -->
     </div>
   </div>
 

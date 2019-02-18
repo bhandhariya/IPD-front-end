@@ -32,17 +32,17 @@
       </h5>
       <div class="polls-options">
         <div>
-          <input type="radio"  name="QQQ1" [(ngModel)]="Q1" value="Yes" id="programmingJavascript" required>
+          <input type="radio" (click)="q1()"  name="QQQ1" [(ngModel)]="Q1" value="Yes" id="programmingJavascript" required>
           <label for="Q1ofyes">Yes</label>
         </div>
         <div>
-          <input type="radio" name="QQQ1" value="No" [(ngModel)]="Q1"  id="programmingRuby" required>
+          <input type="radio" (click)="q1()" name="QQQ1" value="No" [(ngModel)]="Q1"  id="programmingRuby" required>
           <label for="Q1ofno">No</label>
         </div>
       </div>
-      <div class="polls-submit">
+      <!-- <div class="polls-submit">
         <input type="submit" class="button" (click)="q1()"  value="Submit">
-      </div>
+      </div> -->
     </div>
   </div>
 
