@@ -8,6 +8,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgxPrintModule } from "ngx-print";
 import { MatButtonModule,MatCheckboxModule, MatMenuModule, MatDialogModule, MatInputModule, MatDatepickerModule, MatNativeDateModule, MatGridListModule } from "@angular/material";
 import { Angular2CsvModule } from 'angular2-csv';
+import {MatTableModule} from '@angular/material/table';
+
 
 import { AppComponent } from './app.component';
 
@@ -89,7 +91,7 @@ import { Section90Component } from './component/sections/section90/section90.com
   ],
   imports: [
     BrowserModule,MatButtonModule,MatCheckboxModule,MatChipsModule,
-    MatMenuModule,MatDialogModule,MatInputModule,MatDatepickerModule,MatNativeDateModule,MatGridListModule,
+    MatMenuModule,MatDialogModule,MatInputModule,MatDatepickerModule,MatNativeDateModule,MatGridListModule,MatTableModule,
     FormsModule,HttpModule,Angular2CsvModule,
     NgxPrintModule,
     NgbModule.forRoot(),

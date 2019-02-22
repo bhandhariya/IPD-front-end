@@ -14,126 +14,125 @@
       <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
     </mat-form-field>
   </div>
-  <div class="col-md-6" >
-    <table *ngIf="data" class="table table-bordered table-inverse table-responsive">
+  <br><br>
+  <div class="col-md-9" >
+    
+  </div>
+  
+  <div *ngIf="data;else temp">
+
+<div class="col-md-12" *ngIf="data" >
+    <table  class="table table-bordered ">
       <thead class="thead-inverse">
         <tr>
-          <th>sr</th>
-          <th> Name <span class="	fas fa-user-tie"></span> </th>
-          <th>Gurdian Name<span class="	fas fa-user"></span></th>
+          <th> Token No.</th>
+          <th>Patient Name<span class=" fas fa-user-tie"></span> </th>
+          <th>Gurdian Name<span class=" fas fa-user"></span></th>
           <th>email<span class="glyphicon glyphicon-envelope"></span></th>
-          <th>Mobile<span class="fab fa-mobile"></span></th>
+          <th> Mobile<span class="fab fa-mobile"></span></th>
+          <th>Patient Present</th>
+          <th>Actions</th>
           
         </tr>
         </thead>
         <tbody>
-          <tr (click)="test(item._id)"  *ngFor="let item of data;let i=index">
+          <tr   *ngFor="let item of data;let i=index">
             <td scope="row">{{i+1}}</td>
             <td>{{item.first_name}} {{item.last_name}}</td>
             <td>{{item.parent_name}}</td>
             <td>{{item.email}}</td>
             <td>{{item.primary_contact_number}}</td>
+            <td>Yes</td>
+            <td>
+              <input type="button" value="Generate Bill" class="btn btn-info" (click)="test(item._id)" >
+              <input type="button" value="View Privious Bills" class="btn btn-danger" (click)="test1(item._id)"  >
+            </td>
           </tr>
          
         </tbody>
         
     </table>
   </div>
-  <div class="col-md-4">
-    <table *ngIf="Services"  class="table table-light">
-      <thead class="thead-light">
-        <tr>
-          <th>S.N.</th>
-          <th>#Service name</th>
-          <th>charge</th>
-          <th>Action</th>
 
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of Services;let i=index">
-          <td>{{i+1}}</td>
-          <td>{{item.name}}</td>
-          <td>{{item.charge}}</td>
-          <td><input type="button" value="add service to patient" (click)="addServiceToPatient(item._id)" ></td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <th><input type="button" value="bill"  (click)="billing()" class="btn btn-info">
-            <button printSectionId="print-section" ngxPrint>print</button>
-          </th>
-        </tr>
-      </tfoot>
-    </table>
+ 
+
+
+
   </div>
-  <div *ngIf="Services"  class="col-md-8" >
-   <div>
-    <div  class="container">
-      <h2>Invoice</h2>
-      <!-- <p>The panel-group class clears the bottom-margin. Try to remove the class and see what happens.</p> -->
-      <div id="print-section" class="panel-group">
-        <div class="panel panel-default">
-          <div class="panel-heading">Invoice#no</div>
-          <div class="panel-body">
-           <div class="container-fluid">
-            <div class="col-md-4">
-              <img src="../../../assets/logo.png" style="height: 25px;widows: 15px;">
-          </div>
-          <div class="col-md-4">
-         <div>
-          {{patser.first_name}} {{patser.last_name}}
-         </div>
-          </div>
-          <div class="col-md-4">
-            {{hospiatl_details.name}}
-          </div>
-          <div class="col-md-12">
-            <div   class="table-responsive">
-              <table   class="table table-striped table-bordered">
-                <thead>
-                  <tr  >
-                    <th>S. No.</th>
-                    <th>Service Name</th>
-                    <th>Charges</th>
-                    
-                   
-                    
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr  *ngFor="let item of servicedetailsall;let i=index"  >
-                    <td>{{i+1}}</td>
-                    <td>{{item.name}}</td>
-                    <td>{{item.charge}}</td>
-                    <!-- <td *ngIf="item._id!=addser;else ddd" ><input type="button" class="btn btn-danger"  value="Delete" (click)="deleteserviceFromPatient(item._id)"  >
-                      <input type="button" value="add"  (click)="selectService(item._id)"   >
-                    </td> -->
-                    
-                    
-                  </tr>
-                 
-                </tbody>
-                <tfoot>
-                  <tr>
-                    <td></td>
-                    <td>Total</td>
-                    <td>{{totolserviceAmount}}</td>
-                  </tr>
-                </tfoot>
-                <!-- <tr *ngFor="let item of noname" >
-                  <td *ngIf="item._id!=addser;else ddd"  ><input type="button" value="add"  (click)="selectService(item._id)"   ></td>
-                </tr> -->
-              </table>
-            </div>
-          </div>
-           </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-   </div>
-  </div>
+
   <div></div>
+</div>
+
+
+<div  *ngIf="raja">
+    <div  class="col-md-12">
+        <p style="background-color: black;color: red;height: 25px;text-align: center" >Invoice</p>
+       </div>
+       <div  class="col-md-2">
+         <img src="../../../../../assets/logo.png" style="width: 100px;height: 40px">
+       </div>
+        <div class="col-md-8">
+         
+       </div>
+        <div  class="col-md-2">
+         <p style="height: 100px;width: 100px;border: 1px solid red" >
+           demo details
+         </p>
+       </div>
+       <div class="col-md-12">
+           <hr>
+           
+         </div>
+         <div class="col-md-2" >
+           <input type="text" placeholder="Invoice No#" name="">
+         </div>
+         <div class="col-md-8" >
+           
+         </div>
+         
+         <div class="col-md-2" >
+           Date :   18.02.2019
+         </div>
+         
+         <div class="col-md-12">
+           <hr>
+         </div>
+         <div class="col-md-12">
+           <div class="row col-md-12 col-md-offset-2 custyle">
+             <table class="table table-striped custab">
+             <thead>
+             <a  class="btn btn-primary btn-xs pull-right">
+               <select [(ngModel)]="somevalye" (change)="hello(item)" >
+             <option *ngFor="let item of Services" [ngValue]="item" >{{item.name}}</option>
+           </select>
+         
+               <b>+</b> Add new categories</a>
+                 <tr>
+                     <th>Item No.</th>
+                     <th>Service Name</th>
+                     <th>Service Charge</th>
+                     <th class="text-center">Action</th>
+                 </tr>
+             </thead>
+                    <tr *ngFor="let item of servicedetailsall;let i=index" >
+                         <td>
+                           {{i+1}}
+                         </td>
+                         <td>
+                           {{item.name}}
+                         </td>
+                         <td>
+                             {{item.charge}}
+                           </td>
+                           <td>
+                               <input type="button" value="delete" class="btn btn-danger"  >
+                             </td>
+                    </tr>
+             </table>
+             </div>
+         </div>
+        </div>
+
+<div *ngIf="saini">
+  saini`
 </div>

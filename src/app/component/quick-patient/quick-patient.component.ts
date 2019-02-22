@@ -1,7 +1,7 @@
 import { Component, OnInit,ViewEncapsulation, Inject } from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { Http } from '@angular/http';
-import { ResourceLoader } from '@angular/compiler';
+
 
 @Component({
   selector: 'app-quick-patient',

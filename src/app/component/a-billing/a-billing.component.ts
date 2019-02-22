@@ -7,17 +7,26 @@ import { Http } from '@angular/http';
   styleUrls: ['./a-billing.component.css']
 })
 export class ABillingComponent implements OnInit {
-  name;number;data;hos_id;Services;pid;
+  name;number;data;hos_id;Services;pid;raja;saini;
   constructor(@Inject(Http) public http) { }
-test(e){
+  test1(){
+    this.saini='raja'
+    this.data=''
+    this.raja=''
+    
+  }
+  test(e){
   this.pid=e;
   var obj={
     id:this.hos_id,
     
   }
+  
   this.getpatdetails();
   this.getPateintServiceDetails();
-  
+  this.data='';
+  this.raja='rajkakja'
+  this.saini=''
   this.http.post('http://localhost:3000/hospital/getallService',obj).subscribe(this.testcb)
 }
 getpatdetails(){
@@ -55,6 +64,8 @@ hoscb=(dt)=>{
     var obj={
       name:this.name
     }
+    this.raja='';
+    this.saini='';
     this.http.post('http://localhost:3000/patient/findbynameall',obj).subscribe(this.findcb)
   }
   findcb=(dt)=>{
@@ -66,6 +77,8 @@ hoscb=(dt)=>{
     var obj={
       number:this.number
     }
+    this.raja='';
+    this.saini='';
     this.http.post('http://localhost:3000/patient/findbynumberall',obj).subscribe(this.findcb)
   }
   getPateintServiceDetails(){
@@ -77,7 +90,7 @@ hoscb=(dt)=>{
     this.http.post('http://localhost:3000/patient/allServiceDetails',obj).subscribe(this.cb6)
   }
   totolserviceAmount;
-  servicedetailsall
+  servicedetailsall;
   cb6=(dt)=>{
     this.servicedetailsall=(JSON.parse(dt._body))
       this.totolserviceAmount=this.servicedetailsall.reduce((sum,item)=> sum+item.charge,0);
@@ -95,6 +108,12 @@ hoscb=(dt)=>{
     // console.log(obj.hos_id)
     this.http.post('http://localhost:3000/patient/addService',obj).subscribe(this.cb5)
   }
+  somevalye;
+hello(x){
+  var data=x;
+  console.log(data);
+  console.log(this.somevalye)
+}
   addser=0;
   cb5=(dt)=>{
     alert(dt._body)
@@ -111,5 +130,14 @@ hoscb=(dt)=>{
   cbb=(dt)=>{
     alert(dt._body)
   }
+
+billingpat(){
+  var obj={
+    patient_id:'sds',
+    hospital_id:'sds',
+    
+  }
+}
+
 
 }

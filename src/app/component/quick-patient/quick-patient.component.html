@@ -1,6 +1,6 @@
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title">Create new Patient</h4>
+    <h4 class="modal-title">Create new Patient  <input type="button" class="btn btn primary" value="Quick"> </h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -10,8 +10,11 @@
     <div class="col-md-3">
       <div class="form-group">
         <label for="">first name <span style="color: red" >*</span></label>
-        <input type="text" class="form-control"  id="" aria-describedby="helpId" [(ngModel)]="first_name"  placeholder="enter name">
-       
+        <input type="text" minlength="3" maxlength="25" #first="ngModel" class="form-control"  id="" aria-describedby="helpId" [(ngModel)]="first_name"    placeholder="enter name" required  >
+      
+        <div *ngIf="first.errors?.minlength" style="color: red" >
+            name should be Greater than 3
+          </div>
       </div>
       <div class="form-group">
         <label for="">Last Name</label>
