@@ -145,4 +145,17 @@ if(this.billigdata){
 this.getpatdetails()
 this.totall=""
 }
+deleteservicebyid(x){
+var obj={
+  serviceid:x,
+  patid:this.pid
+}
+this.http.post('http://localhost:3000/patient/deleteservicebyid',obj).subscribe(this.deleteCall)
+
+}
+deleteCall=(dt)=>{
+  alert(dt._body);
+this.getpatdetails();
+}
+
 }

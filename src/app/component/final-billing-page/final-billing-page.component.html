@@ -9,8 +9,8 @@
   </div>
   <div class="col-md-3">
     <mat-form-field class="example-full-width">
-      <input type="number" (keyup.enter)="findbynumber()"  matInput #message [(ngModel)]="number" maxlength="256" placeholder="Enter Number">
-      <mat-hint align="start"><strong><i class="fa fa-phone-square fa-2x" aria-hidden="true"></i>Search by number</strong> </mat-hint>
+      <input type="number" (keyup.enter)="findbynumber()"  matInput #message [(ngModel)]="number" maxlength="256" placeholder="Enter Mobile Number">
+      <mat-hint align="start"><strong><i class="fa fa-phone-square fa-2x" aria-hidden="true"></i>Search by mobile number</strong> </mat-hint>
       <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
     </mat-form-field>
   </div>
@@ -127,7 +127,7 @@
                              {{item.charge}}
                            </td>
                            <td>
-                               <input type="button" value="delete" class="btn btn-danger"  >
+                               <input type="button" value="delete" (click)="deleteservicebyid(item._id)" class="btn btn-danger"  >
                              </td>
                     </tr>
                     <tr>

@@ -79,5 +79,18 @@ save(){
 
 
 }
+quickPatient(){
+  var obj={
+    first_name:this.first_name,
+    hosid:localStorage.getItem('hospital-id'),
+    email:this.email
+  }
+  this.http.post(this.url+'/quickaddpatient',obj).subscribe(this.quicjcb)
+}
+quicjcb=(dt)=>{
+alert(dt._body);
+
+
+}
   
 }
