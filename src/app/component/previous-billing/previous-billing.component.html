@@ -1,0 +1,28 @@
+<h1 *ngIf="patData" style="text-align: center;background-color: cadetblue">All Billing for <span style="color: brown" >{{patData.first_name}}  {{patData.last_name}}</span>  </h1>
+
+<table *ngFor="let item of billdata"  class="table table-bordered table-inverse">
+  <thead class="thead-inverse">
+    <tr>
+      <td>Date</td>
+      <td>{{item.billing_date | date:'full'}}</td>
+      <td> Invoice-ID  {{item.invoiceid}}</td>
+    </tr>
+    <tr  >
+      <th>sn</th>
+      <th>Service Name</th>
+      <th>Charge</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ii of item.srervice;let i=index">
+        <td scope="row">{{i+1}}</td>
+        <td>{{ii.name}}</td>
+        <td>{{ii.charge}}</td>
+      </tr>
+      <tr>
+        <td scope="row"></td>
+        <td>Total</td>
+        <td></td>
+      </tr>
+    </tbody>
+</table>

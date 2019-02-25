@@ -89,13 +89,13 @@
     </div>
 
 <hr>
-<mat-chip color="primary"><input type="button" value="Go to Billing Page" (click)="gotobilling()" ></mat-chip>
-<mat-chip-list>
-  <mat-chip color="accent" selected>Billing Summury</mat-chip>
-  
-</mat-chip-list>
 
-
+<div class="form-group">
+  <label for="">Add invoice Prefix</label>
+  <input type="text" class="form-control" name="" id="" aria-describedby="helpId" [(ngModel)]="prefixx" placeholder="">
+  <input type="button" value="save"  (click)="addprefix()"  class="btn btn-info"  >
+  <h1 *ngIf="pref"  > Invoice Format <span style="color:red" >{{pref}}0001</span>  </h1>
+</div>
 
 </div>
 <ng-template #temp>

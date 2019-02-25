@@ -6,7 +6,7 @@ import { RouterModule } from "@angular/router";
 import { JwtModule } from "@auth0/angular-jwt";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgxPrintModule } from "ngx-print";
-import { MatButtonModule,MatCheckboxModule, MatMenuModule, MatDialogModule, MatInputModule, MatDatepickerModule, MatNativeDateModule, MatGridListModule } from "@angular/material";
+import { MatButtonModule,MatCheckboxModule, MatMenuModule, MatDialogModule, MatInputModule, MatDatepickerModule, MatNativeDateModule, MatGridListModule, MatCardModule } from "@angular/material";
 import { Angular2CsvModule } from 'angular2-csv';
 import {MatTableModule} from '@angular/material/table';
 
@@ -51,6 +51,14 @@ import { Section85Component } from './component/sections/section85/section85.com
 import { Section86Component } from './component/sections/section86/section86.component';
 import { Section89Component } from './component/sections/section89/section89.component';
 import { Section90Component } from './component/sections/section90/section90.component';
+import { FinalBillingPageComponent } from './component/final-billing-page/final-billing-page.component';
+import { PreviousBillingComponent } from './component/previous-billing/previous-billing.component';
+import { BasicMedicalRecordComponent } from './component/basic-medical-record/basic-medical-record.component';
+import { HospitalLoginComponent } from './component/hospital-login/hospital-login.component';
+import { ManagerloginComponent } from './component/managerlogin/managerlogin.component';
+import { ManagerComponent } from './component/manager/manager.component';
+import { PreviewPageComponent } from './component/preview-page/preview-page.component';
+import { ManagerprofileComponent } from './component/managerprofile/managerprofile.component';
 
 
 @NgModule({
@@ -87,12 +95,20 @@ import { Section90Component } from './component/sections/section90/section90.com
     Section85Component,
     Section86Component,
     Section89Component,
-    Section90Component
+    Section90Component,
+    FinalBillingPageComponent,
+    PreviousBillingComponent,
+    BasicMedicalRecordComponent,
+    HospitalLoginComponent,
+    ManagerloginComponent,
+    ManagerComponent,
+    PreviewPageComponent,
+    ManagerprofileComponent
   ],
   imports: [
     BrowserModule,MatButtonModule,MatCheckboxModule,MatChipsModule,
     MatMenuModule,MatDialogModule,MatInputModule,MatDatepickerModule,MatNativeDateModule,MatGridListModule,MatTableModule,
-    FormsModule,HttpModule,Angular2CsvModule,
+    FormsModule,HttpModule,Angular2CsvModule,MatCardModule,
     NgxPrintModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
@@ -125,7 +141,9 @@ import { Section90Component } from './component/sections/section90/section90.com
       {path:'home/demo/sections85',component:Section85Component,canActivate:[AuthGuard]},
       {path:'home/demo/sections86',component:Section86Component,canActivate:[AuthGuard]},
       {path:'home/demo/sections89',component:Section89Component,canActivate:[AuthGuard]},
-      {path:'home/demo/sections90',component:Section90Component,canActivate:[AuthGuard]}
+      {path:'home/demo/sections90',component:Section90Component,canActivate:[AuthGuard]},
+      {path:'home/final-bill',component:FinalBillingPageComponent,canActivate:[AuthGuard]},
+      {path:'pre-bill',component:PreviousBillingComponent,canActivate:[AuthGuard]}
       
       
       

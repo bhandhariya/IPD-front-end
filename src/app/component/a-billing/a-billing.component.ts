@@ -109,10 +109,39 @@ hoscb=(dt)=>{
     this.http.post('http://localhost:3000/patient/addService',obj).subscribe(this.cb5)
   }
   somevalye;
-hello(x){
-  var data=x;
-  console.log(data);
-  console.log(this.somevalye)
+  billingis;
+  addnewcategories(){
+    var serviceid=(this.somevalye._id);
+    
+console.log(this.somevalye)
+    var pat_id=this.pid;
+    var hos_id=this.hos_id;
+    var total=this.somevalye.charge;
+    
+    console.log(pat_id)
+    console.log(hos_id)
+    console.log(serviceid);
+    var obj={
+      serviceid:this.somevalye._id,
+      patientid:this.pid,
+      hospitalid:this.hos_id,
+      total:total,
+      billID:this.billingis
+    }
+    this.http.post('http://localhost:3000/patient/billingdetails',obj).subscribe(this.cb2)
+  }
+  serviceDet;detailsosService
+  cb2=(dt)=>{
+    var data=JSON.parse(dt._body)
+    this.serviceDet=JSON.parse(dt._body);
+    this.detailsosService=data.serviceDetailsssss;
+    console.log(this.detailsosService)
+    this.billingis=data._id;
+    console.log(this.billingis);
+    console.log(data)
+  }
+hello(){
+  console.log(this.somevalye._id)
 }
   addser=0;
   cb5=(dt)=>{

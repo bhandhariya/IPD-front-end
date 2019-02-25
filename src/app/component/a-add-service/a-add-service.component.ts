@@ -15,6 +15,7 @@ export class AAddServiceComponent implements OnInit {
     this.a=localStorage.getItem('hospital-id');
     this.fetchAllPatients();
     this.getHospitalDetails();
+    this.findprefix();
   }
   test(){
     alert('raja ')
@@ -86,5 +87,28 @@ export class AAddServiceComponent implements OnInit {
   gotobilling(){
     this.arour.navigateByUrl('home/a-billing')
   }
-
+  prefixx;
+  addprefix(){
+    var obj={
+      invoice_format:this.prefixx,
+      id:this.a
+    }
+    this.http.post('http://localhost:3000/hospital/addprefix',obj).subscribe(this.addpreficall)
+    
+  }
+  addpreficall=(dt)=>{
+    alert(dt._body)
+  }
+  findprefix(){
+    var obj={
+      id:this.a
+    }
+    this.http.post('http://localhost:3000/hospital/findprefix',obj).subscribe(this.findpreficall)
+  }
+  pref;
+  findpreficall=(dt)=>{
+    this.pref=JSON.parse(dt._body)
+    this.pref=(this.pref.invoice_format)
+    console.log(this.pref)
+  }
 }

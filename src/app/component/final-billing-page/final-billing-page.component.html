@@ -3,14 +3,14 @@
   <div class="col-md-3">
     <mat-form-field class="example-full-width">
       <input matInput #message maxlength="256" [(ngModel)]="name" (keyup.enter)="findbyname()"  placeholder="Enter name">
-      <mat-hint align="start"><strong>Search by Name</strong> </mat-hint>
+      <mat-hint align="start"><strong><i class="fa fa-user-plus fa-2x"></i>Search by Name</strong> </mat-hint>
       <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
     </mat-form-field>
   </div>
   <div class="col-md-3">
     <mat-form-field class="example-full-width">
       <input type="number" (keyup.enter)="findbynumber()"  matInput #message [(ngModel)]="number" maxlength="256" placeholder="Enter Number">
-      <mat-hint align="start"><strong>Search by number</strong> </mat-hint>
+      <mat-hint align="start"><strong><i class="fa fa-phone-square fa-2x" aria-hidden="true"></i>Search by number</strong> </mat-hint>
       <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
     </mat-form-field>
   </div>
@@ -27,9 +27,9 @@
         <tr>
           <th> Token No.</th>
           <th>Patient Name<span class=" fas fa-user-tie"></span> </th>
-          <th>Gurdian Name<span class=" fas fa-user"></span></th>
-          <th>email<span class="glyphicon glyphicon-envelope"></span></th>
-          <th> Mobile<span class="fab fa-mobile"></span></th>
+          <th>Gurdian Name <span class=" fa fa-user fa-2x"></span></th>
+          <th> E-Mail  <span class=" fa fa-book fa-2x"></span></th>
+          <th> Mobile  <span class="fa fa-phone fa-2x"></span></th>
           <th>Patient Present</th>
           <th>Actions</th>
           
@@ -62,8 +62,6 @@
 
   <div></div>
 </div>
-
-
 <div  *ngIf="raja">
     <div  class="col-md-12">
         <p style="background-color: black;color: red;height: 25px;text-align: center" >Invoice</p>
@@ -75,10 +73,10 @@
          
        </div>
         <div  class="col-md-4">
-         <p  >
+         <p *ngIf="patser"  >
            
-            name: {{patser.first_name}}{{patser.last_name}}<br>
-           address:{{patser.permanent_address}}
+            Name:<i class="fa fa-user-circle" aria-hidden="true"></i> {{patser.first_name}}  {{patser.last_name}}<br>
+           Address <i class="fa fa-address-book" aria-hidden="true"></i>:{{patser.permanent_address}}
          </p>
        </div>
        <div class="col-md-12">
@@ -93,7 +91,7 @@
          </div>
          
          <div class="col-md-2" >
-           Date :   18.02.2019
+           Date :   23.02.2019
          </div>
          
          <div class="col-md-12">
@@ -110,6 +108,7 @@
          
                <b>+</b></a>
                <input type="button" value=" Add new categories" (click)="addnewcategories()"  >
+               <td><input   style="margin-left:200px" type="button" value="Generate Bill" (click)="bill()"  class="btn btn-info"></td>
                  <tr>
                      <th>Item No.</th>
                      <th>Service Name</th>
@@ -131,11 +130,12 @@
                                <input type="button" value="delete" class="btn btn-danger"  >
                              </td>
                     </tr>
+                    <tr>
+                      <td></td>
+                      <td>total</td>
+                      <td *ngIf="totall">{{totall}}</td>
+                    </tr>
              </table>
              </div>
          </div>
         </div>
-
-<div *ngIf="saini">
-  saini`
-</div>
